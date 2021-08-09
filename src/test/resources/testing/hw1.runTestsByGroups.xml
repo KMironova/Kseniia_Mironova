@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SuiteRunTestByGroups" >
+  <test name="AddAndSubtractTest">
+    <groups>
+      <run>
+        <include name="add and subtract operations"/>
+        <exclude name="data for divide double test"/>
+      </run>
+    </groups>
+  </test>
+
+  <test name="MultiplyAndDivadeTest">
+    <groups>
+      <run>
+        <include name="data for divide double test"/>
+        <exclude name="add and subtract operations"/>
+      </run>
+    </groups>
+  </test>
+
+  <test name="AllTests">
+    <groups>
+      <run>
+        <include name="data for divide double test"/>
+        <include name="add and subtract operations"/>
+      </run>
+    </groups>
+  </test>
+</suite>
