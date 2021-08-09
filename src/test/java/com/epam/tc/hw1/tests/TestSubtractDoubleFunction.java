@@ -1,25 +1,12 @@
-package com.epam.tc.hw1;
+package com.epam.tc.hw1.tests;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import com.epam.tat.module4.Calculator;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import com.epam.tc.hw1.BaseTest;
+import com.epam.tc.hw1.data.providers.DataProviderForSubtractDoubleTest;
 import org.testng.annotations.Test;
 
-public class TestSubtractDoubleFunction {
-
-    private Calculator calculator;
-
-    @BeforeClass(alwaysRun = true)
-    public void createCalculator() {
-        calculator = new Calculator();
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void makeCalculatorEmpty() {
-        calculator = null;
-    }
+public class TestSubtractDoubleFunction extends BaseTest {
 
     @Test(dataProviderClass = DataProviderForSubtractDoubleTest.class,
           dataProvider = "data for subtraction double test",

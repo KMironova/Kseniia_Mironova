@@ -1,24 +1,12 @@
-package com.epam.tc.hw1;
+package com.epam.tc.hw1.tests;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import com.epam.tat.module4.Calculator;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import com.epam.tc.hw1.BaseTest;
+import com.epam.tc.hw1.data.providers.DataProviderForDivideDoubleTest;
 import org.testng.annotations.Test;
 
-public class TestDivideDoubleFunction {
-    private Calculator calculator;
-
-    @BeforeClass(alwaysRun = true)
-    public void createCalculator() {
-        calculator = new Calculator();
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void makeCalculatorEmpty() {
-        calculator = null;
-    }
+public class TestDivideDoubleFunction extends BaseTest {
 
     @Test(dataProviderClass = DataProviderForDivideDoubleTest.class,
           dataProvider = "data for divide double test",
