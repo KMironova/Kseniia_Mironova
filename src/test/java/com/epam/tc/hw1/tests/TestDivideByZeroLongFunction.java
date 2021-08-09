@@ -13,7 +13,7 @@ public class TestDivideByZeroLongFunction extends BaseTest {
           groups = {"multiply and divide operations"})
     public void testDivideByZeroLong(long dividend, long divider) {
         assertThatThrownBy(() -> calculator.div(dividend, divider))
-                                           .isInstanceOf(NumberFormatException.class)
-                                           .hasMessageMatching("Attempt to divide by zero");
+                                            .isInstanceOf(NumberFormatException.class)
+                                            .hasMessageMatching("Attempt to divide by zero");
     }
 }
