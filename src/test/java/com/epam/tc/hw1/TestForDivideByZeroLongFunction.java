@@ -12,13 +12,13 @@ public class TestForDivideByZeroLongFunction {
     private Calculator calculator;
     private NumberFormatException exception;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void createCalculator() {
         calculator = new Calculator();
         exception = new NumberFormatException("Attempt to divide by zero");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void makeCalculatorEmpty() {
         calculator = null;
         exception = null;

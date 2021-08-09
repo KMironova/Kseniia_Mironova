@@ -13,7 +13,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.first.xml</maven-surefire-plugin.suiteXmlFile>
+        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAddAndSubtractTest.xml</maven-surefire-plugin.suiteXmlFile>
 
         <testng.version>7.4.0</testng.version>
         <assertj-core.version>3.4.1</assertj-core.version>
@@ -37,12 +37,28 @@
 
     <profiles>
         <profile>
-            <id>profile-name-first</id>
+            <id>profile-run-suite-SuiteAddAndSubtractTest</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.first.xml</maven-surefire-plugin.suiteXmlFile>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAddAndSubtractTest.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
 
+        <profile>
+            <id>profile-run-suite-SuiteMultiplyAndDivideTest</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runMultiplyAndDivideTest.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>profile-run-suite-SuiteAllTest</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAllTest.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>

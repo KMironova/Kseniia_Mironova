@@ -5,19 +5,18 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import com.epam.tat.module4.Calculator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
 
 public class TestAddDoubleFunction {
 
     private Calculator calculator;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void createCalculator() {
         calculator = new Calculator();
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void makeCalculatorEmpty() {
         calculator = null;
     }

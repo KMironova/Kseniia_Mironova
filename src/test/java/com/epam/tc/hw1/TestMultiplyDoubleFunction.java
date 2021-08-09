@@ -11,12 +11,12 @@ public class TestMultiplyDoubleFunction {
 
     private Calculator calculator;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void createCalculator() {
         calculator = new Calculator();
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void makeCalculatorEmpty() {
         calculator = null;
     }
