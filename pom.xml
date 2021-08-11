@@ -17,8 +17,9 @@
 
         <testng.version>7.4.0</testng.version>
         <assertj-core.version>3.4.1</assertj-core.version>
-        <calculator.version>1.0.0</calculator.version>
+        <calculator.version>1.0</calculator.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <calculator.systemPath>C:\Users\miron\.m2\repository\com\epam\tat\module4\calculator\1.0\calculator-1.0.jar</calculator.systemPath>
     </properties>
 
     <build>
@@ -78,9 +79,11 @@
         </dependency>
 
         <dependency>
-            <groupId>com.epam.tc.calculator</groupId>
+            <groupId>com.epam.tat.module4</groupId>
             <artifactId>calculator</artifactId>
             <version>${calculator.version}</version>
+            <systemPath>${calculator.systemPath}</systemPath>
+            <scope>system</scope>
         </dependency>
     </dependencies>
 </project>
