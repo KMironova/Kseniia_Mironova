@@ -19,7 +19,7 @@
         <assertj-core.version>3.4.1</assertj-core.version>
         <calculator.version>1.0</calculator.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <calculator.systemPath>C:\Users\miron\.m2\repository\com\epam\tat\module4\calculator\1.0\calculator-1.0.jar</calculator.systemPath>
+        <calculator.systemPath>${project.basedir}/src/test/resources/calculator-1.0.jar</calculator.systemPath>
     </properties>
 
     <build>
@@ -82,8 +82,8 @@
             <groupId>com.epam.tat.module4</groupId>
             <artifactId>calculator</artifactId>
             <version>${calculator.version}</version>
-            <systemPath>${calculator.systemPath}</systemPath>
             <scope>system</scope>
+            <systemPath>${calculator.systemPath}</systemPath>
         </dependency>
     </dependencies>
 </project>
