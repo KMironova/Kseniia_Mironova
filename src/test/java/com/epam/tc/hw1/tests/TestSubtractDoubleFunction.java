@@ -3,7 +3,7 @@ package com.epam.tc.hw1.tests;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import com.epam.tc.hw1.BaseTest;
-import com.epam.tc.hw1.data.providers.DataProviderForSubtractDoubleTest;
+import com.epam.tc.hw1.dataproviders.DataProviderForSubtractDoubleTest;
 import org.testng.annotations.Test;
 
 public class TestSubtractDoubleFunction extends BaseTest {

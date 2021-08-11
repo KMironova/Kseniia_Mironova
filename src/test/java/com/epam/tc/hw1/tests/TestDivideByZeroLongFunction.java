@@ -3,7 +3,7 @@ package com.epam.tc.hw1.tests;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
 import com.epam.tc.hw1.BaseTest;
-import com.epam.tc.hw1.data.providers.DataProviderForDivideByZeroLongTest;
+import com.epam.tc.hw1.dataproviders.DataProviderForDivideByZeroLongTest;
 import org.testng.annotations.Test;
 
 public class TestDivideByZeroLongFunction extends BaseTest {

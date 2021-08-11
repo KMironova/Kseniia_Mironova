@@ -3,7 +3,7 @@ package com.epam.tc.hw1.tests;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import com.epam.tc.hw1.BaseTest;
-import com.epam.tc.hw1.data.providers.DataProviderForMultiplyDoubleTest;
+import com.epam.tc.hw1.dataproviders.DataProviderForMultiplyDoubleTest;
 import org.testng.annotations.Test;
 
 public class TestMultiplyDoubleFunction extends BaseTest {
