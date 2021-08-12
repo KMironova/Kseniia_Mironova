@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SuiteAddAndSubtractTest" >
+  <test name="AddAndSubtractTest">
+    <groups>
+      <run>
+        <include name="add and subtract operations"/>
+      </run>
+    </groups>
+
+    <classes>
+      <class name="com.epam.tc.hw1.tests.TestAddDoubleFunction"/>
+      <class name="com.epam.tc.hw1.tests.TestSubtractDoubleFunction"/>
+    </classes>
+  </test>
+</suite>
