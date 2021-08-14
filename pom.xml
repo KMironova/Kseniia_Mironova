@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}
-                    /testing/hw2/resources/testing/runEx1Tests.xml</maven-surefire-plugin.suiteXmlFile>
+                    /testing/hw2.runEx1Tests.xml</maven-surefire-plugin.suiteXmlFile>
 
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <testng.version>7.4.0</testng.version>
@@ -46,7 +46,7 @@
             </activation>
             <properties>
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}
-                    /testing/runEx1Tests.xml</maven-surefire-plugin.suiteXmlFile>
+                    /testing/hw2.runEx1Tests.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
 
@@ -54,7 +54,7 @@
             <id>profile-run-suite-SuiteEx2Tests</id>
             <properties>
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}
-                    /testing/runEx2Tests.xml</maven-surefire-plugin.suiteXmlFile>
+                    /testing/hw2.runEx2Tests.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
     </profiles>

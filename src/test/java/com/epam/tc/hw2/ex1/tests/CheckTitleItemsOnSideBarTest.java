@@ -3,13 +3,22 @@ package com.epam.tc.hw2.ex1.tests;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import com.epam.tc.hw2.ex1.TestBase;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class CheckTitleItemsOnSideBarTest extends TestBase {
+    @AfterClass
+    public void closeElements() {
+        webDriver.quit();
+        element = null;
+    }
 
     //11. Assert that there are 5 items in the Left Section are displayed and they have proper text
     @Test
-    public void test5() {
+    public void testCheckItemsTitleOnSideBar() {
+        String windowHandler = webDriver.getWindowHandle();
+        webDriver.switchTo().window(windowHandler);
+
         String titleHome = "Home";
         String titleService = "Service";
         String titleContactForm = "Contact form";

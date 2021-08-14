@@ -29,16 +29,16 @@ public class Elements {
     @FindBy(id = "user-name")
     private WebElement username;
 
-    @FindBy(linkText = "Home")
+    @FindBy(linkText = "HOME")
     private WebElement homeBar;
 
-    @FindBy(linkText = "Contact form")
+    @FindBy(linkText = "CONTACT FORM")
     private WebElement contactBar;
 
-    @FindBy(linkText = "Service")
+    @FindBy(linkText = "SERVICE")
     private WebElement serviceBar;
 
-    @FindBy(linkText = "Metals & Colors")
+    @FindBy(linkText = "METALS & COLORS")
     private WebElement metalcolorsBar;
 
     @FindBy(className = "icon-practise")
