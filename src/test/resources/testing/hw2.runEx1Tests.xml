@@ -3,7 +3,7 @@
   <test name="Ex1TestsRun">
     <classes>
       <class name= "com.epam.tc.hw2.ex1.tests.CheckEpamUserLoginTest"/>
-      <class name= "com.epam.tc.hw2.ex1.tests.EpamPageTitleTest" />
+      <class name= "com.epam.tc.hw2.ex1.tests.EpamPageTitleTest"/>
       <class name= "com.epam.tc.hw2.ex1.tests.EpamExistItemTitleOnTheHeaderTest" />
       <class name= "com.epam.tc.hw2.ex1.tests.ImageExistOnTheIndexPageTest" />
       <class name= "com.epam.tc.hw2.ex1.tests.CheckUnderIconsOnTheIndexPageTest" />
