@@ -22,7 +22,7 @@ public class TestBase {
 
     @AfterClass
     public void closeElements() {
-        webDriver.close();
+        webDriver.quit();
         element = null;
     }
 }
