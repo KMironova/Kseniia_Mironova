@@ -2,10 +2,11 @@ package com.epam.tc.hw2.ex1.tests;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-import com.epam.tc.hw2.ex1.TestBase;
+import com.epam.tc.hw2.ex1.GeneralWebDriver;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class CheckUnderIconsOnTheIndexPageTest extends TestBase {
+public class CheckUnderIconsOnTheIndexPageTest extends GeneralWebDriver {
 
     //7. Assert that there are 4 texts on the Index Page under icons and they have proper text
     @Test
@@ -17,9 +18,19 @@ public class CheckUnderIconsOnTheIndexPageTest extends TestBase {
             + "some external projects),\n"
             + "wish to get more…";
 
-        assertThat(textUnderPractiseIcon).isEqualTo(element.getTextUnderPractiseIcon());
-        assertThat(textUnderBaseIcon).isEqualTo(element.getTextUnderBaseIcon());
-        assertThat(textUnderCustomIcon).isEqualTo(element.getTextUnderCustomIcon());
-        assertThat(textUnderMultiIcon).isEqualTo(element.getTextUnderMultiIcon());
+        String textUnderPractiseIconActual = webDriver.findElement(By.xpath(
+                                 "//span[starts-with(text(),'To include good practices')]")).getText();
+        String textUnderCustomIconActual = webDriver.findElement(By.xpath(
+                                 "//span[starts-with(text(),'To be flexible')]")).getText();
+        String textUnderMultiIconActual = webDriver.findElement(By.xpath(
+                                 "//span[starts-with(text(),'To be multiplatform')]")).getText();
+        String textUnderBaseIconActual = webDriver.findElement(By.xpath(
+                                 "//span[starts-with(text(),'Already have good')]")).getText();
+
+
+        assertThat(textUnderPractiseIcon).isEqualTo(textUnderPractiseIconActual);
+        assertThat(textUnderBaseIcon).isEqualTo(textUnderBaseIconActual);
+        assertThat(textUnderCustomIcon).isEqualTo(textUnderCustomIconActual);
+        assertThat(textUnderMultiIcon).isEqualTo(textUnderMultiIconActual);
     }
 }
