@@ -2,14 +2,7 @@
 <suite name="SuiteEx1Tests" >
   <test name="Ex1TestsRun">
     <classes>
-      <class name= "com.epam.tc.hw2.ex1.tests.CheckEpamUserLoginTest"/>
-      <class name= "com.epam.tc.hw2.ex1.tests.EpamPageTitleTest"/>
-      <class name= "com.epam.tc.hw2.ex1.tests.EpamExistItemTitleOnTheHeaderTest" />
-      <class name= "com.epam.tc.hw2.ex1.tests.ImageExistOnTheIndexPageTest" />
-      <class name= "com.epam.tc.hw2.ex1.tests.CheckUnderIconsOnTheIndexPageTest" />
-      <class name= "com.epam.tc.hw2.ex1.tests.CheckIframeExistTest" />
-      <class name= "com.epam.tc.hw2.ex1.tests.CheckButtonIsExistOnIframeTest" />
-      <class name= "com.epam.tc.hw2.ex1.tests.CheckTitleItemsOnSideBarTest" />
+      <class name= "com.epam.tc.hw2.ex1.ExerciseOneTest"/>
     </classes>
   </test>
 </suite>

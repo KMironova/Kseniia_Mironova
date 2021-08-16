@@ -1,7 +1,6 @@
-package com.epam.tc.hw2.ex2;
+package com.epam.tc.hw2;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -14,8 +13,6 @@ public class ConfProperties {
             fileInputStream = new FileInputStream("src/test/resources/conf.properties");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

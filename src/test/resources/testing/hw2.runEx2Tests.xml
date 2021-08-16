@@ -2,9 +2,7 @@
 <suite name="SuiteEx2Tests" >
   <test name="Ex2TestsRun">
     <classes>
-      <class name= "com.epam.tc.hw2.ex2.tests.CheckEpamUserLoginTest"/>
-      <class name= "com.epam.tc.hw2.ex2.tests.EpamPageTitleTest" />
-      <class name= "com.epam.tc.hw2.ex2.tests.CheckSelectedElementsTest" />
+      <class name= "com.epam.tc.hw2.ex2.ExerciseTwoTest" />
     </classes>
   </test>
 </suite>
