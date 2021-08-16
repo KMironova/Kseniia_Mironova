@@ -14,12 +14,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw2.runEx1Tests.xml</maven-surefire-plugin.suiteXmlFile>
-
-        <testng.version>7.4.0</testng.version>
-        <assertj-core.version>3.4.1</assertj-core.version>
+  
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>3.141.59</selenium-java.version>
+        <testng.version>7.4.0</testng.version>
+        <assertj-core.version>3.4.1</assertj-core.version>
+        <calculator.version>1.0</calculator.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <calculator.systemPath>${project.basedir}/src/test/resources/libs/calculator-1.0.jar</calculator.systemPath>
     </properties>
 
     <build>
@@ -54,7 +56,29 @@
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw2.runEx2Tests.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
+        
+        <profile>
+             <id>profile-run-suite-SuiteAddAndSubtractTest</id>
+             <properties>
+                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAddAndSubtractTest.xml</maven-surefire-plugin.suiteXmlFile>
+             </properties>
+        </profile>  
+
+        <profile>       
+            <id>profile-run-suite-SuiteMultiplyAndDivideTest</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runMultiplyAndDivideTest.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>profile-run-suite-SuiteAllTest</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAllTest.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
     </profiles>
+
     <dependencies>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -66,7 +90,7 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium-java.version}</version>
-        </dependency>
+        </dependency> 
 
         <dependency>
             <groupId>org.testng</groupId>
@@ -80,6 +104,14 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam.tat.module4</groupId>
+            <artifactId>calculator</artifactId>
+            <version>${calculator.version}</version>
+            <scope>system</scope>
+            <systemPath>${calculator.systemPath}</systemPath>
         </dependency>
     </dependencies>
 </project>
