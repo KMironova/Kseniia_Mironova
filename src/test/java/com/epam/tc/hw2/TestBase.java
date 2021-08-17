@@ -23,6 +23,5 @@ public class TestBase {
     @AfterClass
     public void closeElements() {
         webDriver.quit();
-        softAssertions = null;
     }
 }
