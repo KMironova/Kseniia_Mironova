@@ -39,16 +39,16 @@ public class ExerciseOneTest extends TestBase {
 
         softAssertions.assertThat(homeBarName)
                 .as("wrong name for 'home' bar")
-                .isEqualTo(webDriver.findElement(By.linkText("HOME")));
+                .isEqualTo(webDriver.findElement(By.linkText("HOME")).getText());
         softAssertions.assertThat(contactFormBarName)
                 .as("wrong name for 'contact' bar")
-                .isEqualTo(webDriver.findElement(By.linkText("CONTACT FORM")));
+                .isEqualTo(webDriver.findElement(By.linkText("CONTACT FORM")).getText());
         softAssertions.assertThat(serviceBarName)
                 .as("wrong name for 'service' bar")
-                .isEqualTo(webDriver.findElement(By.linkText("SERVICE")));
+                .isEqualTo(webDriver.findElement(By.linkText("SERVICE")).getText());
         softAssertions.assertThat(metalsAndColorsBarName)
                 .as("wrong name for 'metals and colors' bar")
-                .isEqualTo(webDriver.findElement(By.linkText("METALS & COLORS")));
+                .isEqualTo(webDriver.findElement(By.linkText("METALS & COLORS")).getText());
 
         //6. Assert that there are 4 images on the Index Page and they are displayed
         WebElement baseIconElement = webDriver.findElement(By.className("icon-base"));
