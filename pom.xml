@@ -13,8 +13,10 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAddAndSubtractTest.xml</maven-surefire-plugin.suiteXmlFile>
-
+        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/HW2TestRun.xml</maven-surefire-plugin.suiteXmlFile>
+  
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
         <testng.version>7.4.0</testng.version>
         <assertj-core.version>3.4.1</assertj-core.version>
         <calculator.version>1.0</calculator.version>
@@ -39,16 +41,23 @@
 
     <profiles>
         <profile>
-            <id>profile-run-suite-SuiteAddAndSubtractTest</id>
+            <id>profile-run-suite-SuiteHW2Tests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAddAndSubtractTest.xml</maven-surefire-plugin.suiteXmlFile>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/HW2TestRun.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
-
+        
         <profile>
+             <id>profile-run-suite-SuiteAddAndSubtractTest</id>
+             <properties>
+                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAddAndSubtractTest.xml</maven-surefire-plugin.suiteXmlFile>
+             </properties>
+        </profile>  
+
+        <profile>       
             <id>profile-run-suite-SuiteMultiplyAndDivideTest</id>
             <properties>
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runMultiplyAndDivideTest.xml</maven-surefire-plugin.suiteXmlFile>
@@ -64,6 +73,18 @@
     </profiles>
 
     <dependencies>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency> 
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
