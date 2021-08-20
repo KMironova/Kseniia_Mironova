@@ -42,9 +42,6 @@
     <profiles>
         <profile>
             <id>profile-run-suite-SuiteHW2Tests</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/HW2TestRun.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
@@ -68,6 +65,16 @@
             <id>profile-run-suite-SuiteAllTest</id>
             <properties>
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAllTest.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>profile-run-suite-SuiteHW3Test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/HW3TestRun.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
     </profiles>
@@ -96,7 +103,7 @@
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
