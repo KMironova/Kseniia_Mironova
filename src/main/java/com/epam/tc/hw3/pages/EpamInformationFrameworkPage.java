@@ -1,20 +1,13 @@
 package com.epam.tc.hw3.pages;
 
-import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class EpamInformationFrameworkPage {
-
-    WebDriver webDriver;
-    public SoftAssertions softAssertions;
+public class EpamInformationFrameworkPage extends BasePage{
 
     public EpamInformationFrameworkPage(WebDriver webDriver) {
-        PageFactory.initElements(webDriver, this);
-        this.webDriver = webDriver;
-        softAssertions = new SoftAssertions();
+        super(webDriver);
     }
 
     @FindBy (css = "li.dropdown:nth-child(1) > a:nth-child(1)")
@@ -92,15 +85,6 @@ public class EpamInformationFrameworkPage {
     @FindBy(xpath = "//span[text() = 'Different elements']")
     private WebElement differentPage;
 
-    public void openPage(String url) {
-        webDriver.navigate().to(url);
-    }
-
-    public void verifyHomePageTitle(String expectedTitle) {
-        softAssertions.assertThat(expectedTitle)
-                .isEqualTo(webDriver.getTitle());
-    }
-
     public void login(String password, String username) {
         dropdownButtonWhereLoginFunctions.click();
         userNameFieldForLogin.sendKeys(username);
@@ -167,11 +151,6 @@ public class EpamInformationFrameworkPage {
     public void verifyThatButtonExistOnIframe() {
         webDriver.switchTo().frame("frame");
         softAssertions.assertThat(iframeButton.isDisplayed()).isTrue();
-    }
-
-    public void switchToHomePage() {
-        String windowHandler = webDriver.getWindowHandle();
-        webDriver.switchTo().window(windowHandler);
     }
 
     public void verifyHomeElementNameOnLeftSideMenu(String expectedName) {

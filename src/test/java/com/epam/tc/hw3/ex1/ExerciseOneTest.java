@@ -17,7 +17,7 @@ public class ExerciseOneTest extends TestBase {
         //2. Assert Browser title
         epamInformationFrameworkPage.verifyHomePageTitle("Home Page");
 
-        //3. Perform login
+       //3. Perform login
         epamInformationFrameworkPage.login(ConfProperties.getProperty("password"),
                                            ConfProperties.getProperty("username"));
 
