@@ -1,13 +1,14 @@
 package com.epam.tc.hw3.pages;
 
+import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DifferentPage extends BasePage{
 
-    public DifferentPage(WebDriver driver) {
-        super(driver);
+    public DifferentPage(WebDriver driver, SoftAssertions softAssertions) {
+        super(driver, softAssertions);
     }
 
     @FindBy(xpath = "//label[text()[contains(.,'Water')]]/input")

@@ -7,11 +7,12 @@ import org.openqa.selenium.support.PageFactory;
 public class BasePage {
 
     protected WebDriver webDriver;
-    protected SoftAssertions softAssertions = new SoftAssertions();
+    protected SoftAssertions softAssertions;
 
-    BasePage(WebDriver webDriver) {
+    public BasePage(WebDriver webDriver, SoftAssertions softAssertions) {
         PageFactory.initElements(webDriver, this);
         this.webDriver = webDriver;
+        this.softAssertions = softAssertions;
     }
 
     public void openPage(String url) {
