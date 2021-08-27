@@ -1,8 +1,6 @@
 package com.epam.tc.hw4.ex1;
 
-import static io.qameta.allure.Allure.step;
-
-import com.epam.tc.hw3.pages.EpamInformationFrameworkPage;
+import com.epam.tc.hw4.pages.EpamInformationFrameworkPage;
 import com.epam.tc.hw4.ConfProperties;
 import com.epam.tc.hw4.TestBase;
 import io.qameta.allure.Description;
@@ -16,36 +14,36 @@ public class ExerciseOneTest extends TestBase {
     @Test
     @Description("test function: login, correct display icons and text")
     @Feature("base function")
-    @Story("perfom login and correct page load")
+    @Story("perfomgherkin login and correct page load")
     public void testExerciseOne() {
         EpamInformationFrameworkPage epamInformationFrameworkPage = new EpamInformationFrameworkPage(webDriver, softAssertions);
 
-        step("1. Open  test site by URL");
+        //1. Open  test site by URL
         epamInformationFrameworkPage.openPage(ConfProperties.getProperty("url"));
 
-        step("2. Assert Browser title");
-        epamInformationFrameworkPage.verifyHomePageTitle("Home Page");
+        //2. Assert Browser title
+        epamInformationFrameworkPage.verifyPageTitle("Home Page");
 
-        step("3. Perform login");
+        //3. Perform login
         epamInformationFrameworkPage.login(ConfProperties.getProperty("password"),
                                            ConfProperties.getProperty("username"));
 
-        step("4. Assert Username is loggined");
+        //4. Assert Username is loggined
         epamInformationFrameworkPage.verifyLoginUser("ROMAN IOVLEV");
 
-        step("5. Assert that there are 4 items on the header sections are displayed and they have proper texts");
+        //5. Assert that there are 4 items on the header sections are displayed and they have proper texts
         epamInformationFrameworkPage.verifyHomeElementNameOnHeader("HOME");
         epamInformationFrameworkPage.verifyContactsElementNameOnHeader("CONTACT FORM");
         epamInformationFrameworkPage.verifyServiceElementNameOnHeader("SERVICE");
         epamInformationFrameworkPage.verifyColorsAndMetalsElementNameOnHeader("METALS & COLORS");
 
-        step("6. Assert that there are 4 images on the Index Page and they are displayed");
+        //6. Assert that there are 4 images on the Index Page and they are displayed
         epamInformationFrameworkPage.verifyThatBaseIconIsDisplayed();
         epamInformationFrameworkPage.verifyThatPractiseIconIsDisplayed();
         epamInformationFrameworkPage.verifyThatMultiIconIsDisplayed();
         epamInformationFrameworkPage.verifyThatCustomIconIsDisplayed();
 
-        step("7. Assert that there are 4 texts on the Index Page under icons and they have proper text");
+        //7. Assert that there are 4 texts on the Index Page under icons and they have proper text
         epamInformationFrameworkPage.verifyThatProperTextIsUnderPractiseIcon("To include good practices\n"
                                                                                         + "and ideas from successful\n"
                                                                                         + "EPAM project");
@@ -57,16 +55,16 @@ public class ExerciseOneTest extends TestBase {
                                                                                         + "some external projects),\n"
                                                                                         + "wish to get more…");
 
-        step("8. Assert that there is the iframe with “Frame Button” exist");
+        //8. Assert that there is the iframe with “Frame Button” exist
         epamInformationFrameworkPage.verifyIframeExist();
 
-        step("9. Switch to the iframe and check that there is “Frame Button” in the iframe");
+        //9. Switch to the iframe and check that there is “Frame Button” in the iframe
         epamInformationFrameworkPage.verifyThatButtonExistOnIframe();
 
-        step("10. Switch to original window back");
+        //10. Switch to original window back
         epamInformationFrameworkPage.switchToHomePage();
 
-        step("11. Assert that there are 5 items in the Left Section are displayed and they have proper text");
+        //11. Assert that there are 5 items in the Left Section are displayed and they have proper text
         epamInformationFrameworkPage.verifyHomeElementNameOnLeftSideMenu("Home");
         epamInformationFrameworkPage.verifyServiceElementNameOnLeftSideMenu("Service");
         epamInformationFrameworkPage.verifyContactElementNameOnLeftSideMenu("Contact form");
