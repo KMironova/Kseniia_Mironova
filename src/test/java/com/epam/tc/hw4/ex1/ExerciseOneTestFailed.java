@@ -1,5 +1,7 @@
 package com.epam.tc.hw4.ex1;
 
+import static io.qameta.allure.Allure.step;
+
 import com.epam.tc.hw4.pages.EpamInformationFrameworkPage;
 import com.epam.tc.hw4.ConfProperties;
 import com.epam.tc.hw4.TestBase;
@@ -15,7 +17,7 @@ public class ExerciseOneTestFailed extends TestBase {
 
     @BeforeClass
     public void beforeClass(ITestContext context) {
-        context.setAttribute("driver",webDriver);
+        context.setAttribute("driver", webDriver);
     }
 
     @Test
@@ -23,6 +25,7 @@ public class ExerciseOneTestFailed extends TestBase {
     @Feature("base function")
     @Story("perform login and correct page load")
     public void testExerciseOne() {
+        step("Test some feature");
         EpamInformationFrameworkPage epamInformationFrameworkPage =
             new EpamInformationFrameworkPage(webDriver, softAssertions);
 
