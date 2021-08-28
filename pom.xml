@@ -26,7 +26,8 @@
         <aspectj.version>1.9.5</aspectj.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <lombok.version>1.18.20</lombok.version>
-        <cucumber.version>6.11.0</cucumber.version>
+        <cucumber.version>${cucumber-java.version}</cucumber.version>
+        <cucumber-java.version>6.11.0</cucumber-java.version>
     </properties>
 
     <build>
@@ -92,11 +93,18 @@
 
         <profile>
             <id>profile-run-suite-SuiteHW4Test</id>
+            <properties>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW4TestRun.xml</maven-surefire-plugin>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>profile-run-suite-SuiteHW5Test</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW4TestRun.xml</maven-surefire-plugin>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW5TestRun.xml</maven-surefire-plugin>
             </properties>
         </profile>
     </profiles>
@@ -155,6 +163,18 @@
             <artifactId>allure-java-commons</artifactId>
             <version>${allure.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber-java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber-java.version}</version>
         </dependency>
     </dependencies>
 
