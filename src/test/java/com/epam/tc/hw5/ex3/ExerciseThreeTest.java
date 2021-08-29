@@ -1,6 +1,8 @@
 package com.epam.tc.hw5.ex3;
 
-import com.epam.tc.hw5.TestBase;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-public class ExerciseThreeTest extends TestBase {
+@CucumberOptions
+public class ExerciseThreeTest extends AbstractTestNGCucumberTests {
 }
