@@ -3,6 +3,8 @@ package com.epam.tc.hw4.ex1;
 import com.epam.tc.hw4.pages.EpamInformationFrameworkPage;
 import com.epam.tc.hw4.ConfProperties;
 import com.epam.tc.hw4.TestBase;
+import com.epam.tc.hw4.pages.components.HeaderComponents;
+import com.epam.tc.hw4.pages.components.LeftSideMenuComponents;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -33,10 +35,14 @@ public class ExerciseOneTestFailed extends TestBase {
         epamInformationFrameworkPage.verifyLoginUser("ROMAN IOVLEV");
 
         //5. Assert that there are 4 items on the header sections are displayed and they have proper texts
-        epamInformationFrameworkPage.verifyHomeElementNameOnHeader("HOME");
-        epamInformationFrameworkPage.verifyContactsElementNameOnHeader("CONTACT FORM Fail");
-        epamInformationFrameworkPage.verifyServiceElementNameOnHeader("SERVICE");
-        epamInformationFrameworkPage.verifyColorsAndMetalsElementNameOnHeader("METALS & COLORS");
+        new HeaderComponents(webDriver,softAssertions)
+            .verifyHomeElementNameOnHeader("HOME");
+        new HeaderComponents(webDriver,softAssertions)
+            .verifyContactsElementNameOnHeader("CONTACT FORM Fail");
+        new HeaderComponents(webDriver,softAssertions)
+            .verifyServiceElementNameOnHeader("SERVICE");
+        new HeaderComponents(webDriver,softAssertions)
+            .verifyColorsAndMetalsElementNameOnHeader("METALS & COLORS");
 
         //6. Assert that there are 4 images on the Index Page and they are displayed
         epamInformationFrameworkPage.verifyThatBaseIconIsDisplayed();
@@ -66,11 +72,16 @@ public class ExerciseOneTestFailed extends TestBase {
         epamInformationFrameworkPage.switchToHomePage();
 
         //11. Assert that there are 5 items in the Left Section are displayed and they have proper text
-        epamInformationFrameworkPage.verifyHomeElementNameOnLeftSideMenu("Home Fail");
-        epamInformationFrameworkPage.verifyServiceElementNameOnLeftSideMenu("Service");
-        epamInformationFrameworkPage.verifyContactElementNameOnLeftSideMenu("Contact form");
-        epamInformationFrameworkPage.verifyMetalsAndColorsElementNameOnLeftSideMenu("Metals & Colors");
-        epamInformationFrameworkPage.verifyElementPacksElementNameOnLeftSideMenu("Elements packs");
+        new LeftSideMenuComponents(webDriver,softAssertions)
+            .verifyHomeElementNameOnLeftSideMenu("Home Fail");
+        new LeftSideMenuComponents(webDriver,softAssertions)
+            .verifyServiceElementNameOnLeftSideMenu("Service");
+        new LeftSideMenuComponents(webDriver,softAssertions)
+            .verifyContactElementNameOnLeftSideMenu("Contact form");
+        new LeftSideMenuComponents(webDriver,softAssertions)
+            .verifyMetalsAndColorsElementNameOnLeftSideMenu("Metals & Colors");
+        new LeftSideMenuComponents(webDriver,softAssertions)
+            .verifyElementPacksElementNameOnLeftSideMenu("Elements packs");
 
         softAssertions.assertAll();
     }

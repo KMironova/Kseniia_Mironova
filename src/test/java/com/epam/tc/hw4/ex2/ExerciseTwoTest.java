@@ -4,6 +4,7 @@ import com.epam.tc.hw4.pages.DifferentPage;
 import com.epam.tc.hw4.pages.EpamInformationFrameworkPage;
 import com.epam.tc.hw4.ConfProperties;
 import com.epam.tc.hw4.TestBase;
+import com.epam.tc.hw4.pages.components.LeftSideMenuComponents;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -33,7 +34,7 @@ public class ExerciseTwoTest extends TestBase {
         epamInformationFrameworkPage.verifyLoginUser("ROMAN IOVLEV");
 
         //5. Open through the header menu Service -> Different Page
-        DifferentPage differentPage = epamInformationFrameworkPage.openDifferentPage();
+        DifferentPage differentPage = new LeftSideMenuComponents(webDriver,softAssertions).openDifferentPage();
 
         //6.Select checkboxes (Wind,Water)
         differentPage.selectCheckBoxWater();
