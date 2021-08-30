@@ -53,22 +53,22 @@ public class DifferentPage extends BasePage {
     }
 
     public void verifySelectedCheckBoxWater() {
-        softAssertions.assertThat(logForCheckBoxWater.isDisplayed()).isTrue();
-        softAssertions.assertThat(checkBoxWater.isSelected()).isTrue();
+        softAssertions.assertThat(logForCheckBoxWater.isDisplayed());
+        softAssertions.assertThat(checkBoxWater.isSelected());
     }
 
     public void verifySelectedCheckBoxWind() {
-        softAssertions.assertThat(logForCheckBoxWind.isDisplayed()).isTrue();
-        softAssertions.assertThat(checkBoxWind.isSelected()).isTrue();
+        softAssertions.assertThat(logForCheckBoxWind.isDisplayed());
+        softAssertions.assertThat(checkBoxWind.isSelected());
     }
 
     public void verifySelectedRadioSelen() {
-        softAssertions.assertThat(logForRadioSelen.isDisplayed()).isTrue();
-        softAssertions.assertThat(radioSelen.isSelected()).isTrue();
+        softAssertions.assertThat(logForRadioSelen.isDisplayed());
+        softAssertions.assertThat(radioSelen.isSelected());
     }
 
     public void verifySelectedDropDownYellow() {
-        softAssertions.assertThat(logForDropDownYellow.isDisplayed()).isTrue();
-        softAssertions.assertThat(dropDownYellow.isSelected()).isTrue();
+        softAssertions.assertThat(logForDropDownYellow.isDisplayed());
+        softAssertions.assertThat(dropDownYellow.isSelected());
     }
 }

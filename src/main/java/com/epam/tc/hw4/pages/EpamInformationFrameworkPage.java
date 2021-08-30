@@ -102,22 +102,22 @@ public class EpamInformationFrameworkPage extends BasePage {
 
     @Step ("Verify that image with name 'Base' is displayed on the page")
     public void verifyThatBaseIconIsDisplayed() {
-        softAssertions.assertThat(iconBase.isDisplayed()).isTrue();
+        softAssertions.assertThat(iconBase.isDisplayed());
     }
 
     @Step ("Verify that image with name 'Practise' is displayed on the page")
     public void verifyThatPractiseIconIsDisplayed() {
-        softAssertions.assertThat(iconPractise.isDisplayed()).isTrue();
+        softAssertions.assertThat(iconPractise.isDisplayed());
     }
 
     @Step ("Verify that image with name 'Multi' is displayed on the page")
     public void verifyThatMultiIconIsDisplayed() {
-        softAssertions.assertThat(iconMulti.isDisplayed()).isTrue();
+        softAssertions.assertThat(iconMulti.isDisplayed());
     }
 
     @Step ("Verify that image with name 'Custom' is displayed on the page")
     public void verifyThatCustomIconIsDisplayed() {
-        softAssertions.assertThat(iconCustom.isDisplayed()).isTrue();
+        softAssertions.assertThat(iconCustom.isDisplayed());
     }
 
     @Step ("Verify that under image with name 'Base' has proper text")
@@ -162,13 +162,13 @@ public class EpamInformationFrameworkPage extends BasePage {
 
     @Step ("Verify that iframe with button is exist")
     public void verifyIframeExist() {
-        softAssertions.assertThat(iframe.isDisplayed()).isTrue();
+        softAssertions.assertThat(iframe.isDisplayed());
     }
 
     @Step ("Verify that button on iframe is exist")
     public void verifyThatButtonExistOnIframe() {
         webDriver.switchTo().frame("frame");
-        softAssertions.assertThat(iframeButton.isDisplayed()).isTrue();
+        softAssertions.assertThat(iframeButton.isDisplayed());
     }
 
     @Step("Verify that on left side menu element with name 'Home' have proper text")
