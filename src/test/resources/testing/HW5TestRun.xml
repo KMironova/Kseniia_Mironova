@@ -5,6 +5,9 @@
   </listeners>
   <test name="RunEx1andEx2Tests">
     <classes>
+      <class name="com.epam.tc.hw5.ex1.ExerciseOneTestRun"/>
+      <class name="com.epam.tc.hw5.ex2.ExerciseTwoTestRun"/>
+      <class name="com.epam.tc.hw5.ex3.ExerciseThreeTest"/>
     </classes>
   </test>
 </suite>

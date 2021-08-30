@@ -6,6 +6,6 @@ public class ActionStep extends AbstractStep {
 
     @When("I select 'vip' checkbox for 'Sergey Ivan'")
     public void selectVipForCheckboxIvan() {
-
+        userTablePage.selectVipCheckboxForUserIvan();
     }
 }

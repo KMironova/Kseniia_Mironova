@@ -26,7 +26,7 @@ public class CucumberHook {
 
     @After
     public void closeDriver() {
-        //webDriver.quit();
+        webDriver.quit();
         TestContext.getInstance().clean();
     }
 }

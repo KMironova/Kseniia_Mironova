@@ -1,11 +1,9 @@
 package com.epam.tc.hw5.ex2.steps;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Then;
-import java.util.Arrays;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class AssertionStep extends AbstractStep {
 
@@ -34,23 +32,15 @@ public class AssertionStep extends AbstractStep {
         userTablePage.verifyDisplayedCheckboxes();
     }
 
-    @ParameterType("'(.+)'")
-    public List<String> listValues(String entry) {
-        return Arrays.stream(entry.split(" "))
-                     .collect(Collectors.toList());
-    }
-
     @Then("User table should contain following values:")
     public void verifyUserTableValues (DataTable listValues) {
-        List <String> newList = listValues.asList();
-
-        for (String str : newList) {
-            System.out.println("() - " + str);
-        }
+        List <String> userInformation = listValues.asList();
+        userTablePage.verifyUserInformation(userInformation);
     }
 
     @Then("droplist should contain values in column Type for user Roman:")
-    public void verifyDroplistColumnValues(String values) {
-
+    public void verifyDroplistColumnValues(DataTable dropdownValues) {
+        List<String> informationForUserRoman = dropdownValues.asList();
+        userTablePage.verifyDroplistInformationForUserRoman(informationForUserRoman);
     }
 }
