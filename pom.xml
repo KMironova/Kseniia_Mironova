@@ -17,16 +17,16 @@
   
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>3.141.59</selenium-java.version>
-        <testng.version>7.4.0</testng.version>
-        <assertj-core.version>3.4.1</assertj-core.version>
+        <testng.version>7.1.0</testng.version>
+        <assertj-core.version>3.20.2</assertj-core.version>
         <calculator.version>1.0</calculator.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <calculator.systemPath>${project.basedir}/src/test/resources/libs/calculator-1.0.jar</calculator.systemPath>
-        <allure.version>2.13.2</allure.version>
-        <aspectj.version>1.9.5</aspectj.version>
+        <allure.version>2.13.3</allure.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <lombok.version>1.18.20</lombok.version>
         <cucumber.version>6.11.0</cucumber.version>
+        <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
     <build>
@@ -155,6 +155,12 @@
             <artifactId>allure-java-commons</artifactId>
             <version>${allure.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-attachments</artifactId>
+            <version>${allure.version}</version>
         </dependency>
     </dependencies>
 
