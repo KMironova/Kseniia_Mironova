@@ -9,15 +9,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CucumberHook {
-
-    public static WebDriver webDriver;
-    public static SoftAssertions softAssertions;
+    WebDriver webDriver;
 
     @Before
     public void initDriver() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
-        softAssertions = new SoftAssertions();
+        var softAssertions = new SoftAssertions();
         webDriver.manage().window().maximize();
 
         TestContext.getInstance().addTestObject("web_driver", webDriver);
