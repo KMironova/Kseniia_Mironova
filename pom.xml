@@ -100,6 +100,13 @@
 
         <profile>
             <id>profile-run-suite-SuiteHW5Test</id>
+            <properties>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW5TestRun.xml</maven-surefire-plugin>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>profile-run-suite-SuiteHW6Test</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>

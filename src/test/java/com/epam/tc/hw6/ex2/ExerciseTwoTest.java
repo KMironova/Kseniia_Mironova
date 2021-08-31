@@ -4,6 +4,7 @@ import com.epam.tc.hw4.pages.DifferentPage;
 import com.epam.tc.hw4.pages.EpamInformationFrameworkPage;
 import com.epam.tc.hw6.ConfProperties;
 import com.epam.tc.hw6.TestBase;
+import com.epam.tc.hw6.driver.WebDriverManagerSingleton;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -16,23 +17,24 @@ public class ExerciseTwoTest extends TestBase {
     @Feature("test selected function")
     @Story("select checkbox, radio, dropdown")
     public void testExerciseTwo() {
-        EpamInformationFrameworkPage epamInformationFrameworkPage = new EpamInformationFrameworkPage(webDriver, softAssertions);
+        EpamInformationFrameworkPage epamPage = new EpamInformationFrameworkPage(
+                WebDriverManagerSingleton.getWebDriver(), softAssertions);
 
         //1. Open  test site by URL
-        epamInformationFrameworkPage.openPage(ConfProperties.getProperty("url"));
+        epamPage.openPage(ConfProperties.getProperty("url"));
 
         //2. Assert Browser title
-        epamInformationFrameworkPage.verifyPageTitle("Home Page");
+        epamPage.verifyPageTitle("Home Page");
 
         //3. Perform login
-        epamInformationFrameworkPage.login(ConfProperties.getProperty("password"),
+        epamPage.login(ConfProperties.getProperty("password"),
                 ConfProperties.getProperty("username"));
 
         //4. Assert Username is loggined
-        epamInformationFrameworkPage.verifyLoginUser("ROMAN IOVLEV");
+        epamPage.verifyLoginUser("ROMAN IOVLEV");
 
         //5. Open through the header menu Service -> Different Page
-        DifferentPage differentPage = epamInformationFrameworkPage.openDifferentPage();
+        DifferentPage differentPage = epamPage.openDifferentPage();
 
         //6.Select checkboxes (Wind,Water)
         differentPage.selectCheckBoxWater();
