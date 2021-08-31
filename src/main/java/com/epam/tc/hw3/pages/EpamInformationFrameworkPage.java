@@ -1,13 +1,14 @@
 package com.epam.tc.hw3.pages;
 
+import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class EpamInformationFrameworkPage extends BasePage{
 
-    public EpamInformationFrameworkPage(WebDriver webDriver) {
-        super(webDriver);
+    public EpamInformationFrameworkPage(WebDriver webDriver, SoftAssertions softAssertions) {
+        super(webDriver, softAssertions);
     }
 
     @FindBy (css = "li.dropdown:nth-child(1) > a:nth-child(1)")
@@ -55,10 +56,10 @@ public class EpamInformationFrameworkPage extends BasePage{
     @FindBy(xpath = "//span[starts-with(text(),'To be flexible')]")
     private WebElement textUnderCustomIcon;
 
-    @FindBy (xpath = "//span[starts-with(text(),'To be multiplatform")
+    @FindBy(xpath = "//span[starts-with(text(),'To be multiplatform')]")
     private WebElement textUnderMultiIcon;
 
-    @FindBy (xpath = "//span[starts-with(text(),'Already have good')]")
+    @FindBy(xpath = "//span[starts-with(text(),'Already have good')]")
     private WebElement textUnderBaseIcon;
 
     @FindBy(id = "frame")
@@ -129,19 +130,19 @@ public class EpamInformationFrameworkPage extends BasePage{
     }
 
     public void verifyThatProperTextIsUnderBaseIcon(String expectedText) {
-        softAssertions.assertThat(expectedText).isEqualTo(textUnderBaseIcon);
+        softAssertions.assertThat(expectedText).isEqualTo(textUnderBaseIcon.getText());
     }
 
     public void verifyThatProperTextIsUnderPractiseIcon(String expectedText) {
-        softAssertions.assertThat(expectedText).isEqualTo(textUnderPractiseIcon);
+        softAssertions.assertThat(expectedText).isEqualTo(textUnderPractiseIcon.getText());
     }
 
     public void verifyThatProperTextIsUnderMultiIcon(String expectedText) {
-        softAssertions.assertThat(expectedText).isEqualTo(textUnderMultiIcon);
+        softAssertions.assertThat(expectedText).isEqualTo(textUnderMultiIcon.getText());
     }
 
     public void verifyThatProperTextIsUnderCustomIcon(String expectedText) {
-        softAssertions.assertThat(expectedText).isEqualTo(textUnderCustomIcon);
+        softAssertions.assertThat(expectedText).isEqualTo(textUnderCustomIcon.getText());
     }
 
     public void verifyIframeExist() {
@@ -176,6 +177,6 @@ public class EpamInformationFrameworkPage extends BasePage{
     public DifferentPage openDifferentPage() {
         serviceElementOnLeftSideMenu.click();
         differentPage.click();
-        return new DifferentPage(webDriver);
+        return new DifferentPage(webDriver, softAssertions);
     }
 }

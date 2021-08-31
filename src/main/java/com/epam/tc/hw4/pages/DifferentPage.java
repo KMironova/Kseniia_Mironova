@@ -1,11 +1,12 @@
-package com.epam.tc.hw3.pages;
+package com.epam.tc.hw4.pages;
 
+import com.epam.tc.hw3.pages.BasePage;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DifferentPage extends BasePage{
+public class DifferentPage extends BasePage {
 
     public DifferentPage(WebDriver driver, SoftAssertions softAssertions) {
         super(driver, softAssertions);
@@ -52,22 +53,22 @@ public class DifferentPage extends BasePage{
     }
 
     public void verifySelectedCheckBoxWater() {
-        softAssertions.assertThat(logForCheckBoxWater.isDisplayed()).isTrue();
-        softAssertions.assertThat(checkBoxWater.isSelected()).isTrue();
+        softAssertions.assertThat(logForCheckBoxWater.isDisplayed());
+        softAssertions.assertThat(checkBoxWater.isSelected());
     }
 
     public void verifySelectedCheckBoxWind() {
-        softAssertions.assertThat(logForCheckBoxWind.isDisplayed()).isTrue();
-        softAssertions.assertThat(checkBoxWind.isSelected()).isTrue();
+        softAssertions.assertThat(logForCheckBoxWind.isDisplayed());
+        softAssertions.assertThat(checkBoxWind.isSelected());
     }
 
     public void verifySelectedRadioSelen() {
-        softAssertions.assertThat(logForRadioSelen.isDisplayed()).isTrue();
-        softAssertions.assertThat(radioSelen.isSelected()).isTrue();
+        softAssertions.assertThat(logForRadioSelen.isDisplayed());
+        softAssertions.assertThat(radioSelen.isSelected());
     }
 
     public void verifySelectedDropDownYellow() {
-        softAssertions.assertThat(logForDropDownYellow.isDisplayed()).isTrue();
-        softAssertions.assertThat(dropDownYellow.isSelected()).isTrue();
+        softAssertions.assertThat(logForDropDownYellow.isDisplayed());
+        softAssertions.assertThat(dropDownYellow.isSelected());
     }
 }

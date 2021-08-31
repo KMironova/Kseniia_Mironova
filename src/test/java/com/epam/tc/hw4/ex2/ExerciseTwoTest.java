@@ -1,14 +1,21 @@
-package com.epam.tc.hw3.ex2;
+package com.epam.tc.hw4.ex2;
 
-import com.epam.tc.hw3.ConfProperties;
-import com.epam.tc.hw3.TestBase;
-import com.epam.tc.hw3.pages.DifferentPage;
-import com.epam.tc.hw3.pages.EpamInformationFrameworkPage;
+import com.epam.tc.hw4.pages.DifferentPage;
+import com.epam.tc.hw4.pages.EpamInformationFrameworkPage;
+import com.epam.tc.hw4.ConfProperties;
+import com.epam.tc.hw4.TestBase;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+
 import org.testng.annotations.Test;
 
 public class ExerciseTwoTest extends TestBase {
 
     @Test
+    @Description("test opening 'Different page' and selecting checkbox, radio and dropdown")
+    @Feature("test selected function")
+    @Story("select checkbox, radio, dropdown")
     public void testExerciseTwo() {
         EpamInformationFrameworkPage epamInformationFrameworkPage = new EpamInformationFrameworkPage(webDriver, softAssertions);
 
@@ -16,7 +23,7 @@ public class ExerciseTwoTest extends TestBase {
         epamInformationFrameworkPage.openPage(ConfProperties.getProperty("url"));
 
         //2. Assert Browser title
-        epamInformationFrameworkPage.verifyHomePageTitle("Home Page");
+        epamInformationFrameworkPage.verifyPageTitle("Home Page");
 
         //3. Perform login
         epamInformationFrameworkPage.login(ConfProperties.getProperty("password"),
@@ -38,10 +45,10 @@ public class ExerciseTwoTest extends TestBase {
         //8. Select in dropdown (Yellow)
         differentPage.selectDropDownYellow();
 
-        /*9. Assert that
-        • for each checkbox there is an individual log row and value is corresponded to the status of checkbox
-        • for radio button there is a log row and value is corresponded to the status of radio button
-        • for dropdown there i  s a log row and value is corresponded to the selected value*/
+        /*9. Assert that"
+        + "• for each checkbox there is an individual log row and value is corresponded to the status of checkbox"
+        + "• for radio button there is a log row and value is corresponded to the status of radio button"
+        + "• for dropdown there i  s a log row and value is corresponded to the selected value*/
         differentPage.verifySelectedCheckBoxWater();
         differentPage.verifySelectedCheckBoxWind();
         differentPage.verifySelectedRadioSelen();

@@ -13,15 +13,20 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/HW2TestRun.xml</maven-surefire-plugin.suiteXmlFile>
+        <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW2TestRun.xml</maven-surefire-plugin>
   
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>3.141.59</selenium-java.version>
-        <testng.version>7.4.0</testng.version>
-        <assertj-core.version>3.4.1</assertj-core.version>
+        <testng.version>7.1.0</testng.version>
+        <assertj-core.version>3.20.2</assertj-core.version>
         <calculator.version>1.0</calculator.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <calculator.systemPath>${project.basedir}/src/test/resources/libs/calculator-1.0.jar</calculator.systemPath>
+        <allure.version>2.13.3</allure.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <lombok.version>1.18.20</lombok.version>
+        <cucumber.version>6.11.0</cucumber.version>
+        <aspectj.version>1.9.5</aspectj.version>
     </properties>
 
     <build>
@@ -31,10 +36,20 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${maven-surefire-plugin.suiteXmlFile}</suiteXmlFile>
+                        <suiteXmlFile>${maven-surefire-plugin}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
@@ -43,38 +58,45 @@
         <profile>
             <id>profile-run-suite-SuiteHW2Tests</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/HW2TestRun.xml</maven-surefire-plugin.suiteXmlFile>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW2TestRun.xml</maven-surefire-plugin>
             </properties>
         </profile>
         
         <profile>
              <id>profile-run-suite-SuiteAddAndSubtractTest</id>
              <properties>
-                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAddAndSubtractTest.xml</maven-surefire-plugin.suiteXmlFile>
+                 <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/hw1.runAddAndSubtractTest.xml</maven-surefire-plugin>
              </properties>
         </profile>  
 
         <profile>       
             <id>profile-run-suite-SuiteMultiplyAndDivideTest</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runMultiplyAndDivideTest.xml</maven-surefire-plugin.suiteXmlFile>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/hw1.runMultiplyAndDivideTest.xml</maven-surefire-plugin>
             </properties>
         </profile>
 
         <profile>
             <id>profile-run-suite-SuiteAllTest</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/hw1.runAllTest.xml</maven-surefire-plugin.suiteXmlFile>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/hw1.runAllTest.xml</maven-surefire-plugin>
             </properties>
         </profile>
 
         <profile>
             <id>profile-run-suite-SuiteHW3Test</id>
+            <properties>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW3TestRun.xml</maven-surefire-plugin>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>profile-run-suite-SuiteHW4Test</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/testing/HW3TestRun.xml</maven-surefire-plugin.suiteXmlFile>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW4TestRun.xml</maven-surefire-plugin>
             </properties>
         </profile>
     </profiles>
@@ -96,7 +118,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -113,5 +135,46 @@
             <scope>system</scope>
             <systemPath>${calculator.systemPath}</systemPath>
         </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>${allure.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-attachments</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
     </dependencies>
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
