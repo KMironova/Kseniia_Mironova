@@ -13,9 +13,7 @@ public class TestBase {
     public void setWebDriver(ITestContext context) {
         softAssertions = new SoftAssertions();
         var webDriver = WebDriverManagerSingleton.getWebDriver();
-
         webDriver.manage().window().maximize();
-        context.setAttribute("driver", webDriver);
     }
 
     @AfterClass
