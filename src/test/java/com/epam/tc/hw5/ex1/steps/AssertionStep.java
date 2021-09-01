@@ -10,7 +10,7 @@ public class AssertionStep extends AbstractStep {
     }
 
     @Then("for checkbox 'Wind' there is an individual log row and value is corresponded to the status of checkbox")
-    public void verifySelectedCheckboxWind () {
+    public void verifySelectedCheckboxWin() {
         differentPage.verifySelectedCheckBoxWind();
     }
 

@@ -1,9 +1,8 @@
 package com.epam.tc.hw5.ex2.steps;
 
+import java.util.List;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
-
-import java.util.List;
 
 public class AssertionStep extends AbstractStep {
 
@@ -33,8 +32,8 @@ public class AssertionStep extends AbstractStep {
     }
 
     @Then("User table should contain following values:")
-    public void verifyUserTableValues (DataTable listValues) {
-        List <String> userInformation = listValues.asList();
+    public void verifyUserTableValues(DataTable listValues) {
+        List<String> userInformation = listValues.asList();
         userTablePage.verifyUserInformation(userInformation);
     }
 

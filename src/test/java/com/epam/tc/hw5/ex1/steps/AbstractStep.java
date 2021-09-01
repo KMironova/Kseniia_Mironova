@@ -13,11 +13,11 @@ public abstract class AbstractStep {
     protected static LeftSideMenuComponents leftSideMenuComponents;
     protected static DifferentPage differentPage;
 
-    protected AbstractStep () {
-       WebDriver webDriver = TestContext.getInstance().getTestObject("web_driver");
-       SoftAssertions softAssertions = TestContext.getInstance().getTestObject("soft_assertion");
+    protected AbstractStep() {
+        WebDriver webDriver = TestContext.getInstance().getTestObject("web_driver");
+        SoftAssertions softAssertions = TestContext.getInstance().getTestObject("soft_assertion");
 
-       epamPage = new GdiGitHubSite(webDriver,softAssertions);
-       leftSideMenuComponents = new LeftSideMenuComponents(webDriver,softAssertions);
+        epamPage = new GdiGitHubSite(webDriver, softAssertions);
+        leftSideMenuComponents = new LeftSideMenuComponents(webDriver, softAssertions);
     }
 }

@@ -6,18 +6,14 @@ import io.cucumber.java.en.Given;
 
 public class GivenStep extends AbstractStep {
 
-    public GivenStep () {
-
-    }
-
     @Given("I open Home Page")
-    public void openPage () {
+    public void openPage() {
         epamPage.openPage(ConfProperties.getProperty("url"));
     }
 
     @Given("I perform login")
     public void login() {
-        epamPage.login(ConfProperties.getProperty("password"),ConfProperties.getProperty("username"));
+        epamPage.login(ConfProperties.getProperty("password"), ConfProperties.getProperty("username"));
     }
 
     @Given("I open through the header menu Service -> Different Elements Page")

@@ -13,7 +13,7 @@ public class GivenStep extends AbstractStep {
 
     @Given("I login as user \"Roman Iovlev\"")
     public void login() {
-        gdiGitHubSite.login(ConfProperties.getProperty("password"),ConfProperties.getProperty("username"));
+        gdiGitHubSite.login(ConfProperties.getProperty("password"), ConfProperties.getProperty("username"));
     }
 
     @Given("I click on \"Service\" button in Header")

@@ -13,12 +13,12 @@ public abstract class AbstractStep {
     protected static UserTablePage userTablePage;
     protected static HeaderComponents headerComponents;
 
-    protected AbstractStep () {
+    protected AbstractStep() {
         WebDriver webDriver = TestContext.getInstance().getTestObject("web_driver");
         SoftAssertions softAssertions = TestContext.getInstance().getTestObject("soft_assertion");
 
-        gdiGitHubSite = new GdiGitHubSite(webDriver,softAssertions);
-        headerComponents = new HeaderComponents(webDriver,softAssertions);
-        userTablePage = new UserTablePage(webDriver,softAssertions);
+        gdiGitHubSite = new GdiGitHubSite(webDriver, softAssertions);
+        headerComponents = new HeaderComponents(webDriver, softAssertions);
+        userTablePage = new UserTablePage(webDriver, softAssertions);
     }
 }
