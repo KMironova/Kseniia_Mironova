@@ -10,8 +10,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class HeaderComponents extends AbstractComponent {
 
-    public  HeaderComponents (WebDriver webDriver, SoftAssertions softAssertions) {
-        super(webDriver,softAssertions);
+    public  HeaderComponents(WebDriver webDriver, SoftAssertions softAssertions) {
+        super(webDriver, softAssertions);
     }
 
     @FindBy(linkText = "SERVICE")
@@ -24,8 +24,8 @@ public class HeaderComponents extends AbstractComponent {
         elementService.click();
     }
 
-    public UserTablePage clickUserTableInServiceInDropdown (WebDriver webDriver, SoftAssertions softAssertions) {
+    public UserTablePage clickUserTableInServiceInDropdown(WebDriver webDriver, SoftAssertions softAssertions) {
         userTableServiceInDropDown.click();
-        return new UserTablePage(webDriver,softAssertions);
+        return new UserTablePage(webDriver, softAssertions);
     }
 }
