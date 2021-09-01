@@ -1,6 +1,10 @@
 package com.epam.tc.hw6.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Locale;
+import javax.management.openmbean.InvalidOpenTypeException;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.openqa.selenium.Capabilities;
@@ -10,11 +14,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
-import javax.management.openmbean.InvalidOpenTypeException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Locale;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class WebDriverFactory {
@@ -51,18 +50,18 @@ public final class WebDriverFactory {
         return webDriver;
     }
 
-    private static WebDriver createChromeDriver () {
+    private static WebDriver createChromeDriver() {
         WebDriverManager.chromedriver().setup();
         return new ChromeDriver();
     }
 
-    private static WebDriver createFirefoxDriver () {
+    private static WebDriver createFirefoxDriver() {
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver();
     }
 
-    private static WebDriver createRemoteDriver (String browserName) {
-        Capabilities capabilities = null;
+    private static WebDriver createRemoteDriver(String browserName) {
+        Capabilities capabilities;
 
         switch (browserName.toLowerCase(Locale.ROOT)) {
             case BROWSER_CHROME:
@@ -72,21 +71,21 @@ public final class WebDriverFactory {
                 capabilities = createRemoteFirefoxCapabilities();
                 break;
             default:
-                throw new BrowserNameException(String.format("Unsupported browser name",browserName));
+                throw new BrowserNameException(String.format("Unsupported browser name", browserName));
         }
 
         try {
-            return new RemoteWebDriver(new URL("http://192.168.0.32:4444/wd/hub"),capabilities);
+            return new RemoteWebDriver(new URL("http://10.1.1.1:4444/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
             throw new InvalidOpenTypeException("Incorrect selenium grid url");
         }
     }
 
-    private static Capabilities createRemoteChromeCapabilities () {
+    private static Capabilities createRemoteChromeCapabilities() {
         return new ChromeOptions();
     }
 
-    private static Capabilities createRemoteFirefoxCapabilities () {
+    private static Capabilities createRemoteFirefoxCapabilities() {
         return new FirefoxOptions();
     }
 }
