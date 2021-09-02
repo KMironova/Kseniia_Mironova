@@ -76,7 +76,7 @@ public final class WebDriverFactory {
         }
 
         try {
-            return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
+            return new RemoteWebDriver(new URL("http://10.1.1.1:4444/wd/hub"),capabilities);
         } catch (MalformedURLException e) {
             throw new InvalidOpenTypeException("Incorrect selenium grid url");
         }

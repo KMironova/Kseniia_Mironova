@@ -11,7 +11,7 @@ public final class WebDriverManagerSingleton {
 
     private static WebDriver webDriver;
 
-    public static WebDriver getWebDriver () {
+    public static WebDriver getWebDriver() {
         if (Objects.isNull(webDriver)) {
             webDriver = WebDriverFactory.createWebDriver(ConfProperties.getProperty("driver_type"),
                                                         ConfProperties.getProperty("browser_name"));
