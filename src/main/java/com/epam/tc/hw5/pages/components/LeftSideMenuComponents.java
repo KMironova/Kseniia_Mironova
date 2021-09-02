@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class LeftSideMenuComponents extends AbstractComponent {
-
+  
     public LeftSideMenuComponents(WebDriver webDriver, SoftAssertions softAssertions) {
         super(webDriver, softAssertions);
     }

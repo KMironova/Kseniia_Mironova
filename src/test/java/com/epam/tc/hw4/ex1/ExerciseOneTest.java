@@ -15,6 +15,7 @@ public class ExerciseOneTest extends TestBase {
     @Description("test function: login, correct display icons and text")
     @Feature("base function")
     @Story("perform login and correct page load")
+
     public void testExerciseOne() {
         EpamInformationFrameworkPage epamInformationFrameworkPage = new EpamInformationFrameworkPage(webDriver, softAssertions);
 

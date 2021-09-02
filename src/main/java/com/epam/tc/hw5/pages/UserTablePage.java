@@ -14,6 +14,7 @@ public class UserTablePage extends BasePage {
     }
 
     @FindBy(xpath = "//tbody/tr/td")
+
     public List<WebElement> userInformationWithNumber;
 
     @FindBy(xpath = "//td//a[@href='']")
