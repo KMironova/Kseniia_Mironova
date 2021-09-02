@@ -84,7 +84,7 @@ public class UserTablePage extends BasePage {
             }
             i += 4;
         }
-        Assert.fail("verify Number type fail");
+        softAssertions.fail("verify Number type fail");
     }
 
     private void verifyUser(String expected) {
@@ -94,7 +94,7 @@ public class UserTablePage extends BasePage {
                 return;
             }
         }
-        Assert.fail("verify User fail");
+        softAssertions.fail("verify User fail");
     }
 
     private void verifyDescription(String expected) {
@@ -104,7 +104,7 @@ public class UserTablePage extends BasePage {
                 return;
             }
         }
-        Assert.fail("verify Description fail");
+        softAssertions.fail("verify Description fail");
     }
 
     public void verifyDroplistInformationForUserRoman(List<String> informationForUserRoman) {
@@ -120,7 +120,7 @@ public class UserTablePage extends BasePage {
             }
             i += 4;
         }
-        Assert.fail("verify droplist information for user Roman fail");
+        softAssertions.fail("verify droplist information for user Roman fail");
     }
 
     public void selectVipCheckboxForUserIvan() {
