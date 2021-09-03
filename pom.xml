@@ -28,6 +28,7 @@
         <lombok.version>1.18.20</lombok.version>
         <cucumber.version>${cucumber-java.version}</cucumber.version>
         <cucumber-java.version>6.11.0</cucumber-java.version>
+        <jdi-light-html.version>1.3.14</jdi-light-html.version>
     </properties>
 
     <build>
@@ -107,6 +108,13 @@
 
         <profile>
             <id>profile-run-suite-SuiteHW6Test</id>
+            <properties>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW6TestRun.xml</maven-surefire-plugin>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>profile-run-suite-SuiteHW7Test</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -183,6 +191,13 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber-java.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-light-html</artifactId>
+            <version>${jdi-light-html.version}</version>
+        </dependency>
+
     </dependencies>
 
     <reporting>
