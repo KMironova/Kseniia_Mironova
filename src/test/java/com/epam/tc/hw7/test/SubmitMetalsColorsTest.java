@@ -15,7 +15,7 @@ public class SubmitMetalsColorsTest extends TestBase{
         //open metals and colors page from header menu
         //fill form Metals & Colors by data below: data[%s]
         //Submit form Metals & Colors
-        // check result section
+        //check result section
         homePage.shouldBeOpened();
         shouldBeLoggedIn();
         userIcon.click();
