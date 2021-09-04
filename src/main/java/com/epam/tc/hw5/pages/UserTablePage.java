@@ -5,16 +5,16 @@ import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 public class UserTablePage extends BasePage {
+
+    private SoftAssertions softAssertions;
 
     public UserTablePage(WebDriver driver, SoftAssertions softAssertions) {
         super(driver, softAssertions);
     }
 
     @FindBy(xpath = "//tbody/tr/td")
-
     public List<WebElement> userInformationWithNumber;
 
     @FindBy(xpath = "//td//a[@href='']")
@@ -40,6 +40,7 @@ public class UserTablePage extends BasePage {
     public void verifyNumberTypesIsDisplayed() {
         countPasses = 0;
         for (int i = 0; i < userInformationWithNumber.size();) {
+            System.out.println("# " + userInformationWithNumber.get(i).isDisplayed());
             softAssertions.assertThat(userInformationWithNumber.get(i).isDisplayed());
             i += 4;
             countPasses++;
