@@ -1,7 +1,5 @@
 package com.epam.tc.hw5.pages.components;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
-
 import com.epam.tc.hw5.pages.UserTablePage;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;

@@ -20,7 +20,7 @@
         <testng.version>7.1.0</testng.version>
         <assertj-core.version>3.20.2</assertj-core.version>
         <calculator.version>1.0</calculator.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
         <calculator.systemPath>${project.basedir}/src/test/resources/libs/calculator-1.0.jar</calculator.systemPath>
         <allure.version>2.13.3</allure.version>
         <allure-maven.version>2.10.0</allure-maven.version>
@@ -104,13 +104,6 @@
             </activation>  
             <properties>
                 <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW5TestRun.xml</maven-surefire-plugin>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>profile-run-suite-SuiteHW6Test</id>
-            <properties>
-                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW6TestRun.xml</maven-surefire-plugin>
             </properties>
         </profile>
     </profiles>
