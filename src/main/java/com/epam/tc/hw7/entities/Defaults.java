@@ -1,13 +1,6 @@
 package com.epam.tc.hw7.entities;
 
-
 public class Defaults {
-    public static User DEFAULT_USER = new User();
 
-    public static Contacts DEFAULT_CONTACT = new Contacts().set(c-> {
-        c.firstName = "Roman"; c.lastName = "Iovlev"; c.position = "ChiefQA";
-        c.passport = true; c.passportNumber = "4321"; c.passportSeria = "123456";
-        c.description = "JDI - awesome UI automation tool"; c.acceptConditions = "true";
-        c.gender = "Female"; c.weather = "Sun, Rain";
-    });
+    public static User DEFAULT_USER = new User();
 }
