@@ -11,10 +11,10 @@ public class AbstractComponent {
     protected SoftAssertions softAssertions;
     protected WebDriverWait wait;
 
-    protected AbstractComponent (WebDriver webDriver, SoftAssertions softAssertions) {
+    protected AbstractComponent(WebDriver webDriver, SoftAssertions softAssertions) {
         this.webDriver = webDriver;
         this.softAssertions = softAssertions;
-        PageFactory.initElements(webDriver,this);
+        PageFactory.initElements(webDriver, this);
         wait = new WebDriverWait(webDriver, 10L);
     }
 }

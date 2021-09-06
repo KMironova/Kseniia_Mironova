@@ -1,6 +1,6 @@
-package com.epam.tc.hw5.ex2.cucumber.hooks;
+package com.epam.tc.hw5.cucumber.hooks;
 
-import com.epam.tc.hw5.ex1.cucumber.context.TestContext;
+import com.epam.tc.hw5.cucumber.context.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -9,15 +9,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CucumberHook {
-
-    public static WebDriver webDriver;
-    public static SoftAssertions softAssertions;
+    WebDriver webDriver;
 
     @Before
     public void initDriver() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
-        softAssertions = new SoftAssertions();
+        var softAssertions = new SoftAssertions();
         webDriver.manage().window().maximize();
 
         TestContext.getInstance().addTestObject("web_driver", webDriver);

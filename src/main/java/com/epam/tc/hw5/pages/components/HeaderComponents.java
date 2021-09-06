@@ -1,7 +1,5 @@
 package com.epam.tc.hw5.pages.components;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfAllElements;
-
 import com.epam.tc.hw5.pages.UserTablePage;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
@@ -10,8 +8,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class HeaderComponents extends AbstractComponent {
 
-    public  HeaderComponents (WebDriver webDriver, SoftAssertions softAssertions) {
-        super(webDriver,softAssertions);
+    public  HeaderComponents(WebDriver webDriver, SoftAssertions softAssertions) {
+        super(webDriver, softAssertions);
     }
 
     @FindBy(linkText = "SERVICE")
@@ -24,8 +22,8 @@ public class HeaderComponents extends AbstractComponent {
         elementService.click();
     }
 
-    public UserTablePage clickUserTableInServiceInDropdown (WebDriver webDriver, SoftAssertions softAssertions) {
+    public UserTablePage clickUserTableInServiceInDropdown(WebDriver webDriver, SoftAssertions softAssertions) {
         userTableServiceInDropDown.click();
-        return new UserTablePage(webDriver,softAssertions);
+        return new UserTablePage(webDriver, softAssertions);
     }
 }
