@@ -1,5 +1,6 @@
 package com.epam.tc.hw7.pages;
 
+import com.epam.jdi.light.elements.composite.Section;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
@@ -10,4 +11,5 @@ import com.epam.tc.hw7.components.MetalsColorsForm;
 public class MetalsColorsPage extends WebPage {
 
     @UI("form")public static MetalsColorsForm metalsColorsForm;
+    @UI(".info-panel-section li") public static Section infoPanel;
 }

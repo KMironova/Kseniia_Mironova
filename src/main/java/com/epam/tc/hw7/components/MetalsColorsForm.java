@@ -5,6 +5,7 @@ import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
+import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 import com.epam.tc.hw7.entities.MetalsColors;
 
@@ -35,16 +36,20 @@ public class MetalsColorsForm extends Form<MetalsColors> {
     @UI("[type=checkbox]")
     Checklist elements;
 
-    public void test () {
-        oddsSelector.select(2);
+    @UI("button#submit-button")
+    Button submitButton;
+
+    public void test() {
+        submitButton.click();
     }
     public void fillAction(List<Long> summary, List<String> elements, String color, String metal, List<String> vegetables) {
         selectElemenets(elements);
         colors.select(color);
         metals.select(metal);
         selectVegetables(vegetables);
-        //oddsSelector.select(Math.toIntExact(summary.get(0)));
-        //evenSelector.select(Math.toIntExact(summary.get(1)));
+        oddsSelector.select(Math.toIntExact(summary.get(0)));
+        evenSelector.select(Math.toIntExact(summary.get(1)));
+        submit();
     }
 
     private void selectElemenets(List<String> elementsList) {
