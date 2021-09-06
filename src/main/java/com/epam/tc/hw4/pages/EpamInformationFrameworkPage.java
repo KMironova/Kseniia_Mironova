@@ -12,8 +12,38 @@ public class EpamInformationFrameworkPage extends BasePage {
         super(webDriver, softAssertions);
     }
 
+    @FindBy(linkText = "HOME")
+    private WebElement elementHomeOnNavigationBar;
+
+    @FindBy(linkText = "CONTACT FORM")
+    private WebElement elementContactsOnNavigationBar;
+
+    @FindBy(linkText = "SERVICE")
+    private WebElement elementServiceOnNavigationBar;
+
+    @FindBy(linkText = "METALS & COLORS")
+    private WebElement elementMetalsAndColorsOnNavigationBar;
+
     @FindBy (css = "li.dropdown:nth-child(1) > a:nth-child(1)")
     private WebElement dropdownButtonWhereLoginFunctions;
+
+    @FindBy(xpath = "//span[text() = 'Home']")
+    private WebElement homeElementOnLeftSideMenu;
+
+    @FindBy(xpath = "//span[text() = 'Service']")
+    private WebElement serviceElementOnLeftSideMenu;
+
+    @FindBy(xpath = "//span[text() = 'Contact form']")
+    private WebElement contactsElementOnLeftSideMenu;
+
+    @FindBy(xpath = "//span[text() = 'Metals & Colors']")
+    private WebElement metalsAndColorsElementOnLeftSideMenu;
+
+    @FindBy(xpath = "//span[text() = 'Elements packs']")
+    private WebElement elementsPacksElementOnLeftSideMenu;
+
+    @FindBy(xpath = "//span[text() = 'Different elements']")
+    private WebElement differentPage;
 
     @FindBy(id = "name")
     private WebElement userNameFieldForLogin;
@@ -26,18 +56,6 @@ public class EpamInformationFrameworkPage extends BasePage {
 
     @FindBy(id = "user-name")
     private WebElement loginUserName;
-
-    @FindBy(linkText = "HOME")
-    private WebElement elementHomeOnNavigationBar;
-
-    @FindBy(linkText = "CONTACT FORM")
-    private WebElement elementContactsOnNavigationBar;
-
-    @FindBy(linkText = "SERVICE")
-    private WebElement elementServiceOnNavigationBar;
-
-    @FindBy(linkText = "METALS & COLORS")
-    private WebElement elementMetalsAndColorsOnNavigationBar;
 
     @FindBy(className = "icon-base")
     private WebElement iconBase;
@@ -69,24 +87,6 @@ public class EpamInformationFrameworkPage extends BasePage {
     @FindBy(id = "frame-button")
     private WebElement iframeButton;
 
-    @FindBy(xpath = "//span[text() = 'Home']")
-    private WebElement homeElementOnLeftSideMenu;
-
-    @FindBy(xpath = "//span[text() = 'Service']")
-    private WebElement serviceElementOnLeftSideMenu;
-
-    @FindBy(xpath = "//span[text() = 'Contact form']")
-    private WebElement contactsElementOnLeftSideMenu;
-
-    @FindBy(xpath = "//span[text() = 'Metals & Colors']")
-    private WebElement metalsAndColorsElementOnLeftSideMenu;
-
-    @FindBy(xpath = "//span[text() = 'Elements packs']")
-    private WebElement elementsPacksElementOnLeftSideMenu;
-
-    @FindBy(xpath = "//span[text() = 'Different elements']")
-    private WebElement differentPage;
-
     @Step ("Login to account")
     public void login(String password, String username) {
         dropdownButtonWhereLoginFunctions.click();
@@ -100,7 +100,32 @@ public class EpamInformationFrameworkPage extends BasePage {
         softAssertions.assertThat(usernameToVerify).isEqualTo(loginUserName.getText());
     }
 
-    @Step ("Verify that on header element with name 'HOME' have proper text")
+    @Step ("Verify that image with name 'Base' is displayed on the page")
+    public void verifyThatBaseIconIsDisplayed() {
+        softAssertions.assertThat(iconBase.isDisplayed());
+    }
+
+    @Step ("Verify that image with name 'Practise' is displayed on the page")
+    public void verifyThatPractiseIconIsDisplayed() {
+        softAssertions.assertThat(iconPractise.isDisplayed());
+    }
+
+    @Step ("Verify that image with name 'Multi' is displayed on the page")
+    public void verifyThatMultiIconIsDisplayed() {
+        softAssertions.assertThat(iconMulti.isDisplayed());
+    }
+
+    @Step ("Verify that image with name 'Custom' is displayed on the page")
+    public void verifyThatCustomIconIsDisplayed() {
+        softAssertions.assertThat(iconCustom.isDisplayed());
+    }
+
+    @Step ("Verify that under image with name 'Base' has proper text")
+    public void verifyThatProperTextIsUnderBaseIcon(String expectedText) {
+        softAssertions.assertThat(expectedText).isEqualTo(textUnderBaseIcon.getText());
+    }
+
+    @Step("Verify that on header element with name 'HOME' have proper text")
     public void verifyHomeElementNameOnHeader(String expectedItemText) {
         softAssertions.assertThat(expectedItemText).isEqualTo(elementHomeOnNavigationBar.getText());
     }
@@ -120,31 +145,6 @@ public class EpamInformationFrameworkPage extends BasePage {
         softAssertions.assertThat(expectedItemText).isEqualTo(elementMetalsAndColorsOnNavigationBar.getText());
     }
 
-    @Step ("Verify that image with name 'Base' is displayed on the page")
-    public void verifyThatBaseIconIsDisplayed() {
-        softAssertions.assertThat(iconBase.isDisplayed()).isTrue();
-    }
-
-    @Step ("Verify that image with name 'Practise' is displayed on the page")
-    public void verifyThatPractiseIconIsDisplayed() {
-        softAssertions.assertThat(iconPractise.isDisplayed()).isTrue();
-    }
-
-    @Step ("Verify that image with name 'Multi' is displayed on the page")
-    public void verifyThatMultiIconIsDisplayed() {
-        softAssertions.assertThat(iconMulti.isDisplayed()).isTrue();
-    }
-
-    @Step ("Verify that image with name 'Custom' is displayed on the page")
-    public void verifyThatCustomIconIsDisplayed() {
-        softAssertions.assertThat(iconCustom.isDisplayed()).isTrue();
-    }
-
-    @Step ("Verify that under image with name 'Base' has proper text")
-    public void verifyThatProperTextIsUnderBaseIcon(String expectedText) {
-        softAssertions.assertThat(expectedText).isEqualTo(textUnderBaseIcon.getText());
-    }
-
     @Step ("Verify that under image with name 'Practise' has proper text")
     public void verifyThatProperTextIsUnderPractiseIcon(String expectedText) {
         softAssertions.assertThat(expectedText).isEqualTo(textUnderPractiseIcon.getText());
@@ -162,16 +162,16 @@ public class EpamInformationFrameworkPage extends BasePage {
 
     @Step ("Verify that iframe with button is exist")
     public void verifyIframeExist() {
-        softAssertions.assertThat(iframe.isDisplayed()).isTrue();
+        softAssertions.assertThat(iframe.isDisplayed());
     }
 
     @Step ("Verify that button on iframe is exist")
     public void verifyThatButtonExistOnIframe() {
         webDriver.switchTo().frame("frame");
-        softAssertions.assertThat(iframeButton.isDisplayed()).isTrue();
+        softAssertions.assertThat(iframeButton.isDisplayed());
     }
 
-    @Step ("Verify that on left side menu element with name 'Home' have proper text")
+    @Step("Verify that on left side menu element with name 'Home' have proper text")
     public void verifyHomeElementNameOnLeftSideMenu(String expectedName) {
         softAssertions.assertThat(expectedName).isEqualTo(homeElementOnLeftSideMenu.getText());
     }

@@ -1,23 +1,24 @@
 package com.epam.tc.hw5.pages;
 
-import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
+
+import java.util.List;
 
 public class UserTablePage extends BasePage {
 
-    public UserTablePage (WebDriver driver, SoftAssertions softAssertions) {
+    public UserTablePage(WebDriver driver, SoftAssertions softAssertions) {
         super(driver, softAssertions);
     }
 
     @FindBy(xpath = "//tbody/tr/td")
-    public List <WebElement> userInformationWithNumber;
+
+    public List<WebElement> userInformationWithNumber;
 
     @FindBy(xpath = "//td//a[@href='']")
-    public List <WebElement> usernameList;
+    public List<WebElement> usernameList;
 
     @FindBy(xpath = "//td/select")
     public List<WebElement> userInformation;
@@ -40,25 +41,25 @@ public class UserTablePage extends BasePage {
         countPasses = 0;
         for (int i = 0; i < userInformationWithNumber.size();) {
             softAssertions.assertThat(userInformationWithNumber.get(i).isDisplayed());
-            i+=4;
+            i += 4;
             countPasses++;
         }
         softAssertions.assertThat(countPasses).isEqualTo(6);
     }
 
-    public void verifyUsernamesIsDisplayed () {
+    public void verifyUsernamesIsDisplayed() {
         verifyDisplayedItemList(usernameList);
     }
 
-    public void verifyDisplayedDescription () {
+    public void verifyDisplayedDescription() {
         verifyDisplayedItemList(userInformation);
     }
 
-    public void verifyDisplayedCheckboxes () {
+    public void verifyDisplayedCheckboxes() {
         verifyDisplayedItemList(checkboxList);
     }
 
-    private void verifyDisplayedItemList (List <WebElement> listElements) {
+    private void verifyDisplayedItemList(List<WebElement> listElements) {
         countPasses = 0;
         for (WebElement item : listElements) {
             softAssertions.assertThat(item.isDisplayed());
@@ -67,12 +68,12 @@ public class UserTablePage extends BasePage {
         softAssertions.assertThat(countPasses).isEqualTo(6);
     }
 
-    public void verifyUserInformation (List<String> userInformationList) {
+    public void verifyUserInformation(List<String> userInformationList) {
         for (int i = 3; i < userInformationList.size();) {
             verifyNumberType(userInformationList.get(i));
-            verifyUser(userInformationList.get(i+1));
-            verifyDescription(userInformationList.get(i+2));
-            i+=3;
+            verifyUser(userInformationList.get(i + 1));
+            verifyDescription(userInformationList.get(i + 2));
+            i += 3;
         }
     }
 
@@ -82,9 +83,9 @@ public class UserTablePage extends BasePage {
                 softAssertions.assertThat(userInformationWithNumber.get(i).isDisplayed());
                 return;
             }
-            i+=4;
+            i += 4;
         }
-        Assert.fail("verify Number type fail");
+        softAssertions.fail("verify Number type fail");
     }
 
     private void verifyUser(String expected) {
@@ -94,33 +95,33 @@ public class UserTablePage extends BasePage {
                 return;
             }
         }
-        Assert.fail("verify User fail");
+        softAssertions.fail("verify User fail");
     }
 
     private void verifyDescription(String expected) {
         for (WebElement item : descriptionList) {
-            if (item.getText().replaceAll("\n"," ").equals(expected)) {
+            if (item.getText().replaceAll("\n", " ").equals(expected)) {
                 softAssertions.assertThat(item.isDisplayed());
                 return;
             }
         }
-        Assert.fail("verify Description fail");
+        softAssertions.fail("verify Description fail");
     }
 
-    public void verifyDroplistInformationForUserRoman(List <String> informationForUserRoman) {
-        for (int i = 0; i<userInformationWithNumber.size();) {
+    public void verifyDroplistInformationForUserRoman(List<String> informationForUserRoman) {
+        for (int i = 0; i < userInformationWithNumber.size();) {
             if (userInformationWithNumber.get(i).getText().equals("1")) {
-                softAssertions.assertThat(userInformationWithNumber.get(i+1).getText())
+                softAssertions.assertThat(userInformationWithNumber.get(i + 1).getText())
                         .isEqualTo(informationForUserRoman.get(0));
-                softAssertions.assertThat(userInformationWithNumber.get(i+2).getText())
+                softAssertions.assertThat(userInformationWithNumber.get(i + 2).getText())
                         .isEqualTo(informationForUserRoman.get(1));
-                softAssertions.assertThat(userInformationWithNumber.get(i+3).getText())
+                softAssertions.assertThat(userInformationWithNumber.get(i + 3).getText())
                         .isEqualTo(informationForUserRoman.get(2));
                 return;
             }
-            i+=4;
+            i += 4;
         }
-        Assert.fail("verify droplist information for user Roman fail");
+        softAssertions.fail("verify droplist information for user Roman fail");
     }
 
     public void selectVipCheckboxForUserIvan() {
