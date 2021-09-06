@@ -1,4 +1,4 @@
-package com.epam.tc.hw5.ex1.cucumber.context;
+package com.epam.tc.hw5.cucumber.context;
 
 import java.util.HashMap;
 import java.util.Map;
