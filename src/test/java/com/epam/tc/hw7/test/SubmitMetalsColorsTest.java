@@ -9,16 +9,15 @@ import static com.epam.tc.hw7.pages.HomePage.userIcon;
 import static com.epam.tc.hw7.pages.MetalsColorsPage.metalsColorsForm;
 import static com.epam.tc.hw7.pages.MetalsColorsPage.resultLog;
 
-import com.epam.tc.hw7.dataProvider.DataProviderForMetalsColorsTest;
+import com.epam.tc.hw7.dataprovider.DataProviderForMetalsColorsTest;
+import com.epam.tc.hw7.listeners.TestNGListener;
+import java.util.List;
 import java.util.ListIterator;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import com.epam.tc.hw7.listeners.TestNGListener;
-
-import java.util.List;
 
 @Listeners(TestNGListener.class)
-public class SubmitMetalsColorsTest extends TestBase{
+public class SubmitMetalsColorsTest extends TestBase {
 
     @Test(dataProviderClass = DataProviderForMetalsColorsTest.class,
           dataProvider = "data for metals color test")
@@ -29,10 +28,10 @@ public class SubmitMetalsColorsTest extends TestBase{
         userIcon.click();
         loginForm.loginAs(DEFAULT_USER);
         headerMenu.select(MetalsColors);
-        metalsColorsForm.fillAction(summary,elements,color,metal,vegetables);
+        metalsColorsForm.fillAction(summary, elements, color, metal, vegetables);
 
         softAssertions.assertThat(resultLog.summaryValue.getText())
-                      .isEqualTo("Summary: " + (summary.get(0)+summary.get(1)));
+                      .isEqualTo("Summary: " + (summary.get(0) + summary.get(1)));
         softAssertions.assertThat(resultLog.elementsValue.getText())
                       .isEqualTo("Elements: " + getString(elements));
         softAssertions.assertThat(resultLog.colorValue.getText())
@@ -51,8 +50,9 @@ public class SubmitMetalsColorsTest extends TestBase{
             result.append(str);
             iterator.next();
 
-            if (iterator.hasNext())
+            if (iterator.hasNext()) {
                 result.append(",");
+            }
         }
         return result.toString();
     }

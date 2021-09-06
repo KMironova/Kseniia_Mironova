@@ -11,7 +11,8 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.tc.hw7.entities.MenuItem;
 import com.epam.tc.hw7.entities.User;
 
-@Url("/index.html") @Title("Home Page")
+@Url("/index.html")
+@Title("Home Page")
 public class HomePage extends WebPage {
 
     @Css("form") public static Form<User> loginForm;

@@ -4,7 +4,7 @@ import com.epam.jdi.light.elements.composite.Section;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import org.openqa.selenium.WebElement;
 
-public class ResultLog extends Section{
+public class ResultLog extends Section {
 
     @FindBy(className = "summ-res")
     public static WebElement summaryValue;

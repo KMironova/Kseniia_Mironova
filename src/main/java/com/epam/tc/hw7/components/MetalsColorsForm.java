@@ -8,7 +8,6 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 import com.epam.tc.hw7.entities.MetalsColors;
-
 import java.util.List;
 
 public class MetalsColorsForm extends Form<MetalsColors> {
@@ -39,10 +38,8 @@ public class MetalsColorsForm extends Form<MetalsColors> {
     @UI("button#submit-button")
     Button submitButton;
 
-    public void test() {
-        submitButton.click();
-    }
-    public void fillAction(List<Long> summary, List<String> elements, String color, String metal, List<String> vegetables) {
+    public void fillAction(List<Long> summary, List<String> elements,
+                           String color, String metal, List<String> vegetables) {
         selectElemenets(elements);
         colors.select(color);
         metals.select(metal);
@@ -53,13 +50,15 @@ public class MetalsColorsForm extends Form<MetalsColors> {
     }
 
     private void selectElemenets(List<String> elementsList) {
-        for(String element: elementsList)
+        for (String element : elementsList) {
             elements.select(element);
+        }
     }
 
     private void selectVegetables(List<String> vegetablesList) {
         vegetables.select("Vegetables");
-        for(String vegetable: vegetablesList)
+        for (String vegetable : vegetablesList) {
             vegetables.select(vegetable);
+        }
     }
 }

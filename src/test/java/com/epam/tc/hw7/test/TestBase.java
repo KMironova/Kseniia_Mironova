@@ -3,9 +3,9 @@ package com.epam.tc.hw7.test;
 import static com.epam.jdi.light.settings.WebSettings.logger;
 
 import com.epam.jdi.light.driver.WebDriverUtils;
-import org.assertj.core.api.SoftAssertions;
 import com.epam.jdi.light.elements.init.PageFactory;
 import com.epam.tc.hw7.SiteJdi;
+import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 

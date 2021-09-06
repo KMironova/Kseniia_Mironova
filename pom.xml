@@ -120,7 +120,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW6TestRun.xml</maven-surefire-plugin>
+                <maven-surefire-plugin>${project.build.testOutputDirectory}/testing/HW7TestRun.xml</maven-surefire-plugin>
             </properties>
         </profile>
     </profiles>

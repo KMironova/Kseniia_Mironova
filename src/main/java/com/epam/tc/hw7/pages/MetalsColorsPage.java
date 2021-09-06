@@ -7,7 +7,8 @@ import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.tc.hw7.components.MetalsColorsForm;
 import com.epam.tc.hw7.components.ResultLog;
 
-@Url("/metals-colors.html") @Title("Metal and Colors")
+@Url("/metals-colors.html")
+@Title("Metal and Colors")
 public class MetalsColorsPage extends WebPage {
 
     @UI("form")public static MetalsColorsForm metalsColorsForm;
