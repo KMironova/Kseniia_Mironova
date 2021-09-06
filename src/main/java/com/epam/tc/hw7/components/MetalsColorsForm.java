@@ -49,7 +49,7 @@ public class MetalsColorsForm extends Form<MetalsColors> {
         selectVegetables(vegetables);
         oddsSelector.select(Math.toIntExact(summary.get(0)));
         evenSelector.select(Math.toIntExact(summary.get(1)));
-        submit();
+        submitButton.click();
     }
 
     private void selectElemenets(List<String> elementsList) {

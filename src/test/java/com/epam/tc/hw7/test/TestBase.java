@@ -2,15 +2,20 @@ package com.epam.tc.hw7.test;
 
 import static com.epam.jdi.light.settings.WebSettings.logger;
 
+import com.epam.jdi.light.driver.WebDriverUtils;
+import org.assertj.core.api.SoftAssertions;
 import com.epam.jdi.light.elements.init.PageFactory;
 import com.epam.tc.hw7.SiteJdi;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-public interface TestBase {
+public class TestBase {
+
+    public static SoftAssertions softAssertions;
 
     @BeforeSuite
     static void beforeSuite() {
+        softAssertions = new SoftAssertions();
         PageFactory.initSite(SiteJdi.class);
         logger.info("Run Tests");
 
@@ -18,6 +23,6 @@ public interface TestBase {
 
     @AfterSuite
     static void afterSuite() {
-        //WebDriverUtils.killAllSeleniumDrivers();
+        WebDriverUtils.killAllSeleniumDrivers();
     }
 }
