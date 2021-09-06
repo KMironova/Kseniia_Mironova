@@ -23,7 +23,7 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <calculator.systemPath>${project.basedir}/src/test/resources/libs/calculator-1.0.jar</calculator.systemPath>
         <allure.version>2.14.0</allure.version>
-        <aspectj.version>1.9.5</aspectj.version>
+        <aspectj.version>1.9.6</aspectj.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <lombok.version>1.18.20</lombok.version>
         <cucumber.version>${cucumber-java.version}</cucumber.version>

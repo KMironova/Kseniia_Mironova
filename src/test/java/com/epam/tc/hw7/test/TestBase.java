@@ -18,6 +18,6 @@ public interface TestBase {
 
     @AfterSuite
     static void afterSuite() {
-        WebDriverUtils.killAllSeleniumDrivers();
+        //WebDriverUtils.killAllSeleniumDrivers();
     }
 }
