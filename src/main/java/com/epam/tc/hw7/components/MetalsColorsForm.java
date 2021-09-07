@@ -44,8 +44,8 @@ public class MetalsColorsForm extends Form<MetalsColors> {
         colors.select(color);
         metals.select(metal);
         selectVegetables(vegetables);
-        oddsSelector.select(Math.toIntExact(summary.get(0)));
-        evenSelector.select(Math.toIntExact(summary.get(1)));
+        oddsSelector.select(summary.get(0).toString());
+        evenSelector.select(summary.get(1).toString());
         submitButton.click();
     }
 

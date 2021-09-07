@@ -6,21 +6,21 @@ import com.epam.jdi.light.driver.WebDriverUtils;
 import com.epam.jdi.light.elements.init.PageFactory;
 import com.epam.tc.hw7.SiteJdi;
 import org.assertj.core.api.SoftAssertions;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
     public static SoftAssertions softAssertions;
 
-    @BeforeMethod
+    @BeforeSuite
     static void beforeSuite() {
         softAssertions = new SoftAssertions();
         PageFactory.initSite(SiteJdi.class);
         logger.info("Run Tests");
     }
 
-    @AfterMethod
+    @AfterSuite
     static void afterSuite() {
         WebDriverUtils.killAllSeleniumDrivers();
         logger.info("Stop test");

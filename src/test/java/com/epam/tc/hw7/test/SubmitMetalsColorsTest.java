@@ -8,6 +8,7 @@ import static com.epam.tc.hw7.pages.HomePage.loginForm;
 import static com.epam.tc.hw7.pages.HomePage.userIcon;
 import static com.epam.tc.hw7.pages.MetalsColorsPage.metalsColorsForm;
 import static com.epam.tc.hw7.pages.MetalsColorsPage.resultLog;
+import static com.epam.tc.hw7.states.States.shouldBeLoggedOut;
 
 import com.epam.tc.hw7.dataprovider.DataProviderForMetalsColorsTest;
 import com.epam.tc.hw7.listeners.TestNGListener;
@@ -23,9 +24,9 @@ public class SubmitMetalsColorsTest extends TestBase {
           dataProvider = "data for metals color test")
     public void testSubmitMetalsColors(List<Long> summary, List<String> elements,
                                        String color, String metal, List<String> vegetables) {
-
         homePage.open();
         userIcon.click();
+
         loginForm.loginAs(DEFAULT_USER);
         headerMenu.select(MetalsColors);
         metalsColorsForm.fillAction(summary, elements, color, metal, vegetables);
@@ -40,6 +41,8 @@ public class SubmitMetalsColorsTest extends TestBase {
                       .isEqualTo("Metal: " + metal);
         softAssertions.assertThat(resultLog.vegetablesValue.getText())
                       .isEqualTo("Vegetables: " + getString(vegetables));
+
+        shouldBeLoggedOut();
     }
 
     private String getString(List<String> objectList) {
