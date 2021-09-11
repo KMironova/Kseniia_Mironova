@@ -1,6 +1,6 @@
 package com.epam.tc.hw7.dataprovider;
 
-import com.epam.tc.hw7.reader.JsonReaderForDatas;
+import com.epam.tc.hw7.utils.JsonReaderForDatas;
 import org.testng.annotations.DataProvider;
 
 public class DataProviderForMetalsColorsTest {
@@ -8,13 +8,13 @@ public class DataProviderForMetalsColorsTest {
     @DataProvider(name = "data for metals color test")
     public static Object [][] dataProviderForMetalsColorsTest() {
         return new Object[][] {
-                {JsonReaderForDatas.getLongsFromData("data_1", "summary"),
+                {JsonReaderForDatas.getStringsFromData("data_1", "summary"),
                  JsonReaderForDatas.getStringsFromData("data_1", "elements"),
                  JsonReaderForDatas.getElementFromData("data_1", "color"),
                  JsonReaderForDatas.getElementFromData("data_1", "metals"),
                  JsonReaderForDatas.getStringsFromData("data_1", "vegetables")},
 
-                {JsonReaderForDatas.getLongsFromData("data_2", "summary"),
+               /* {JsonReaderForDatas.getLongsFromData("data_2", "summary"),
                 JsonReaderForDatas.getStringsFromData("data_2", "elements"),
                 JsonReaderForDatas.getElementFromData("data_2", "color"),
                 JsonReaderForDatas.getElementFromData("data_2", "metals"),
@@ -36,7 +36,7 @@ public class DataProviderForMetalsColorsTest {
                  JsonReaderForDatas.getStringsFromData("data_5", "elements"),
                  JsonReaderForDatas.getElementFromData("data_5", "color"),
                  JsonReaderForDatas.getElementFromData("data_5", "metals"),
-                 JsonReaderForDatas.getStringsFromData("data_5", "vegetables")}
+                 JsonReaderForDatas.getStringsFromData("data_5", "vegetables")}*/
         };
     }
 }

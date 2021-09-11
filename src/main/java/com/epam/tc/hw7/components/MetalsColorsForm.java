@@ -11,6 +11,8 @@ import com.epam.tc.hw7.entities.MetalsColors;
 import java.util.List;
 
 public class MetalsColorsForm extends Form<MetalsColors> {
+    @UI("form#form") Form <MetalsColors> metalsColorsForm;
+
     @UI("section#odds-selector input") RadioButtons oddsSelector;
     @UI("section#even-selector input") RadioButtons evenSelector;
 
@@ -18,13 +20,13 @@ public class MetalsColorsForm extends Form<MetalsColors> {
                value = "span.text['Colors']",
                list = "li",
                expand = ".caret")
-    Dropdown colors;
+    Dropdown color;
 
     @JDropdown(root = "div#metals",
                value = "span.text['Metals']",
                list = "li",
                expand = ".caret")
-    Dropdown metals;
+    Dropdown metal;
 
     @JDropdown(root = "div#salad-dropdown",
                value = "#text",
@@ -38,7 +40,7 @@ public class MetalsColorsForm extends Form<MetalsColors> {
     @UI("button#submit-button")
     Button submitButton;
 
-    public void fillAction(List<Long> summary, List<String> elements,
+    /*public void fillAction(List<Integer> summary, List<String> elements,
                            String color, String metal, List<String> vegetables) {
         selectElemenets(elements);
         colors.select(color);
@@ -60,5 +62,11 @@ public class MetalsColorsForm extends Form<MetalsColors> {
         for (String vegetable : vegetablesList) {
             vegetables.select(vegetable);
         }
+    }*/
+
+    @Override
+    public void fill(MetalsColors entity) {
+        super.fill(entity);
+        metalsColorsForm.submit();
     }
 }

@@ -1,4 +1,4 @@
-package com.epam.tc.hw7.reader;
+package com.epam.tc.hw7.utils;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -28,18 +28,6 @@ public class JsonReaderForDatas {
                 "src/test/resources/JDI_ex8_metalsColorsDataSet.json"));
             JSONObject data = (JSONObject) d.get(dataNameFromJason);
             return (List<String>) data.get(elementName);
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public static List<Long> getLongsFromData(String dataNameFromJason, String elementName) {
-        try {
-            JSONObject d = (JSONObject) parser.parse(new FileReader(
-                "src/test/resources/JDI_ex8_metalsColorsDataSet.json"));
-            JSONObject data = (JSONObject) d.get(dataNameFromJason);
-            return (List<Long>) data.get(elementName);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
