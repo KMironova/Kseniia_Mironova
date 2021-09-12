@@ -13,9 +13,10 @@ import static com.epam.tc.hw7.states.States.shouldBeLoggedOut;
 import com.epam.tc.hw7.dataprovider.DataProviderForMetalsColorsTest;
 import com.epam.tc.hw7.entities.MetalsColors;
 import com.epam.tc.hw7.listeners.TestNGListener;
-import java.util.List;
-
+import com.epam.tc.hw7.utils.JsonReaderForDatas;
 import com.epam.tc.hw7.utils.ReaderUtil;
+import java.util.Arrays;
+import java.util.List;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -26,13 +27,17 @@ public class SubmitMetalsColorsTest extends TestBase {
           dataProvider = "data for metals color test")
     public void testSubmitMetalsColors(List<String> summary, List<String> elements,
                                        String color, String metal, List<String> vegetables) {
-        homePage.open();
+
+        System.out.println("summary - " + summary);
+        /*homePage.open();
         userIcon.click();
 
         loginForm.loginAs(DEFAULT_USER);
         headerMenu.select(MetalsColors);
 
-        MetalsColors metalsColors = new MetalsColors(summary.get(0),summary.get(1),elements,color,metal,vegetables);
+        System.out.println(color);
+        MetalsColors metalsColors = new MetalsColors(summary.get(0), summary.get(1), elements,
+                                                                           color, metal, vegetables);
         metalsColorsForm.fill(metalsColors);
 
         softAssertions.assertThat(resultLog.summaryValue.getText())
@@ -46,6 +51,6 @@ public class SubmitMetalsColorsTest extends TestBase {
         softAssertions.assertThat(resultLog.vegetablesValue.getText())
                       .isEqualTo("Vegetables: " + ReaderUtil.getString(vegetables));
 
-        shouldBeLoggedOut();
+        shouldBeLoggedOut();*/
     }
 }

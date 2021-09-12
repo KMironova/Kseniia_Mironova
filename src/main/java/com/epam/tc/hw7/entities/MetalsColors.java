@@ -1,12 +1,11 @@
 package com.epam.tc.hw7.entities;
 
 import com.epam.jdi.tools.DataClass;
-
 import java.util.List;
 
 public class MetalsColors extends DataClass<MetalsColors> {
-    Long oddsSelector;
-    Long evenSelector;
+    String oddsSelector;
+    String evenSelector;
 
 
     List<String> elements;
@@ -15,8 +14,8 @@ public class MetalsColors extends DataClass<MetalsColors> {
     List<String> vegetables;
 
     public MetalsColors(String oddsSelector, String evenSelector, List<String> elements, String color, String metal, List<String> vegetables) {
-        this.oddsSelector = Long.valueOf(oddsSelector);
-        this.evenSelector = Long.valueOf(evenSelector);
+        this.oddsSelector = oddsSelector;
+        this.evenSelector = evenSelector;
         this.elements = elements;
         this.color = color;
         this.metal = metal;
