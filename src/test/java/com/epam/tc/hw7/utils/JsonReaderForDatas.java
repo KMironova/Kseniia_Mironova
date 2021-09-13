@@ -2,40 +2,49 @@ package com.epam.tc.hw7.utils;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class JsonReaderForDatas {
-    static JSONParser parser = new JSONParser();
-    static int nextDataNumber = 1;
 
     public static Object[][] getDatas() {
-        Object [][] datas = {};
         try {
+            JSONParser parser = new JSONParser();
             JSONObject datasFromJson = (JSONObject) parser.parse(new FileReader(
                 "src/test/resources/JDI_ex8_metalsColorsDataSet.json"));
-
-            while (datasFromJson.get("data_" + nextDataNumber) != null) {
-                JSONObject data = (JSONObject) datasFromJson.get("data_" + nextDataNumber);
-                Object [][] newDataObjectArray = Arrays.copyOf(datas, datas.length + 1);
-
-                newDataObjectArray[newDataObjectArray.length - 1] =
-                    new Object[] {data.get("summary"), data.get("elements"),
-                        data.get("color"), data.get("metals"), data.get("vegetables")};
-
-                datas = newDataObjectArray;
-                nextDataNumber++;
-            }
-            return datas;
+            return getObjectsData(datasFromJson);
         } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    private static Object [][] getObjectsData(JSONObject datasFromJson) {
+        Object [][] datas = {};
+        int nextDataNumber = 1;
+
+        while (datasFromJson.get("data_" + nextDataNumber) != null) {
+            JSONObject data = (JSONObject) datasFromJson.get("data_" + nextDataNumber);
+            Object [][] newDataObjectArray = Arrays.copyOf(datas, datas.length + 1);
+            newDataObjectArray[newDataObjectArray.length - 1] = generateNewObjectFromData(data);
+
+            datas = newDataObjectArray;
+            nextDataNumber++;
+        }
+        return datas;
+    }
+
+    private static Object [] generateNewObjectFromData(JSONObject objectData) {
+        return  new Object[] {getSummaryMas(((JSONArray) objectData.get("summary")).toArray()),
+                                                         objectData.get("elements"), objectData.get("color"),
+                                                         objectData.get("metals"), objectData.get("vegetables")};
+    }
+
+    private static int [] getSummaryMas(Object [] ob) {
+        return new int[] {Integer.parseInt(ob[0].toString()), Integer.parseInt(ob[1].toString())};
     }
 }

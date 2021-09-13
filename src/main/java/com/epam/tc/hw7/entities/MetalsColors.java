@@ -4,21 +4,21 @@ import com.epam.jdi.tools.DataClass;
 import java.util.List;
 
 public class MetalsColors extends DataClass<MetalsColors> {
-    String oddsSelector;
-    String evenSelector;
+    int oddsSelector;
+    int evenSelector;
 
-
-    List<String> elements;
     String color;
     String metal;
     List<String> vegetables;
+    List<String> elements;
 
-    public MetalsColors(String oddsSelector, String evenSelector, List<String> elements, String color, String metal, List<String> vegetables) {
+    public MetalsColors(int oddsSelector, int evenSelector, String color, String metal,
+                                        List<String> elements, List<String> vegetables) {
         this.oddsSelector = oddsSelector;
         this.evenSelector = evenSelector;
-        this.elements = elements;
         this.color = color;
         this.metal = metal;
+        this.elements = elements;
         this.vegetables = vegetables;
     }
 }
