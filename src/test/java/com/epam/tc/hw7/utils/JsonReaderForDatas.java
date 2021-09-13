@@ -44,7 +44,7 @@ public class JsonReaderForDatas {
                                                          objectData.get("metals"), objectData.get("vegetables")};
     }
 
-    private static int [] getSummaryMas(Object [] ob) {
-        return new int[] {Integer.parseInt(ob[0].toString()), Integer.parseInt(ob[1].toString())};
+    private static String [] getSummaryMas(Object [] ob) {
+        return new String[] {ob[0].toString(), ob[1].toString()};
     }
 }

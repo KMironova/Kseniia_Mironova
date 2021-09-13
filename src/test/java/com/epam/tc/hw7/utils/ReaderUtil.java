@@ -1,9 +1,8 @@
 package com.epam.tc.hw7.utils;
 
-import lombok.experimental.UtilityClass;
-
 import java.util.List;
 import java.util.ListIterator;
+import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class ReaderUtil {

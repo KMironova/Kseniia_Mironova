@@ -6,19 +6,19 @@ import com.epam.jdi.light.ui.html.elements.common.Text;
 
 public class ResultLog extends Section {
 
-    @UI("li#summ-res")
+    @UI("//li[@class = 'summ-res']")
     public Text summaryValue;
 
-    @UI("li#elem-res")
+    @UI("//li[@class = 'elem-res']")
     public Text elementsValue;
 
-    @UI("li#col-res")
+    @UI("//li[@class = 'col-res']")
     public Text colorValue;
 
-    @UI("li#met-res")
+    @UI("//li[@class = 'met-res']")
     public Text metalValue;
 
-    @UI("li#sal-res")
+    @UI("//li[@class = 'sal-res']")
     public Text vegetablesValue;
 
 }
