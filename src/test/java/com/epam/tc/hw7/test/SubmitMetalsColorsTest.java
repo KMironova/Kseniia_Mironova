@@ -45,4 +45,14 @@ public class SubmitMetalsColorsTest extends TestBase {
         softAssertions.assertThat(resultLog.vegetablesValue.getText())
                       .isEqualTo("Vegetables: " + ReaderUtil.getString(vegetables));
     }
+
+    @Test
+    public void test() {
+        int sum = 2;
+
+        homePage.open();
+        userIcon.click();
+        loginForm.loginAs(DEFAULT_USER);
+        headerMenu.select(MetalsColors);
+    }
 }

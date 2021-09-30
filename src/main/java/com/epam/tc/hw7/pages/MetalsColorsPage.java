@@ -11,6 +11,8 @@ import com.epam.tc.hw7.components.ResultLog;
 @Title("Metal and Colors")
 public class MetalsColorsPage extends WebPage {
 
-    @UI("form")public static MetalsColorsForm metalsColorsForm;
+    @UI("form")public static
+    MetalsColorsForm metalsColorsForm;
+
     public static ResultLog resultLog;
 }

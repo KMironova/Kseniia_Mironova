@@ -12,8 +12,10 @@ import com.epam.tc.hw7.entities.MetalsColors;
 
 public class MetalsColorsForm extends Form<MetalsColors> {
 
-    @UI("section#odds-selector input") RadioButtons oddsSelector;
-    @UI("section#even-selector input") RadioButtons evenSelector;
+    @UI("section#odds-selector input")
+    RadioButtons oddsSelector;
+    @UI("section#even-selector input")
+    RadioButtons evenSelector;
 
     @JDropdown(root = "div#colors",
                value = "span.text['Colors']",
@@ -55,5 +57,9 @@ public class MetalsColorsForm extends Form<MetalsColors> {
         entity.elements.forEach((el) -> elements.select(el));
         vegetables.select("Vegetables");
         entity.vegetables.forEach((veg) -> vegetables.select(veg));
+    }
+
+    public void selectOdds (int num) {
+        oddsSelector.select(num);
     }
 }
