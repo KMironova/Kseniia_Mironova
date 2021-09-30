@@ -7,8 +7,8 @@ import com.epam.jdi.light.driver.WebDriverUtils;
 import com.epam.jdi.light.elements.init.PageFactory;
 import com.epam.tc.hw7.SiteJdi;
 import org.assertj.core.api.SoftAssertions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
@@ -22,8 +22,8 @@ public class TestBase {
         logger.info("Run Tests");
     }
 
-    @BeforeMethod
-    void beforeMethod() {
+    @AfterMethod
+    void afterMethod() {
         shouldBeLoggedOut();
     }
 

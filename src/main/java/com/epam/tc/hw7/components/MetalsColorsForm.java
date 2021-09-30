@@ -39,6 +39,10 @@ public class MetalsColorsForm extends Form<MetalsColors> {
     @UI("button#submit-button")
     Button submitButton;
 
+    public void submit() {
+        submitButton.click();
+    }
+
     @JDIAction("Fill '{name}' with {0}")
     @Override
     public void fill(MetalsColors entity) {
@@ -51,7 +55,5 @@ public class MetalsColorsForm extends Form<MetalsColors> {
         entity.elements.forEach((el) -> elements.select(el));
         vegetables.select("Vegetables");
         entity.vegetables.forEach((veg) -> vegetables.select(veg));
-
-        submitButton.click();
     }
 }

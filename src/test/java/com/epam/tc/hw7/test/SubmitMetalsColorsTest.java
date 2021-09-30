@@ -32,6 +32,7 @@ public class SubmitMetalsColorsTest extends TestBase {
         MetalsColors metalsColors = new MetalsColors(summary[0], summary[1], color, metal, elements, vegetables);
 
         metalsColorsForm.fill(metalsColors);
+        metalsColorsForm.submit();
 
         softAssertions.assertThat(resultLog.summaryValue.getText())
                       .isEqualTo("Summary: " + (Integer.parseInt(summary[0]) + Integer.parseInt(summary[1])));
