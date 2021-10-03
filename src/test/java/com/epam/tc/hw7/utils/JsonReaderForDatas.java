@@ -11,9 +11,10 @@ import org.json.simple.parser.ParseException;
 public class JsonReaderForDatas {
 
     public static Object[][] getDatas() {
+        JSONObject datasFromJson = null;
         try {
             JSONParser parser = new JSONParser();
-            JSONObject datasFromJson = (JSONObject) parser.parse(new FileReader(
+            datasFromJson = (JSONObject) parser.parse(new FileReader(
                 "src/test/resources/JDI_ex8_metalsColorsDataSet.json"));
             return getObjectsData(datasFromJson);
         } catch (IOException | ParseException e) {
@@ -21,7 +22,6 @@ public class JsonReaderForDatas {
         }
         return null;
     }
-
 
     private static Object [][] getObjectsData(JSONObject datasFromJson) {
         Object [][] datas = {};
@@ -31,7 +31,6 @@ public class JsonReaderForDatas {
             JSONObject data = (JSONObject) datasFromJson.get("data_" + nextDataNumber);
             Object [][] newDataObjectArray = Arrays.copyOf(datas, datas.length + 1);
             newDataObjectArray[newDataObjectArray.length - 1] = generateNewObjectFromData(data);
-
             datas = newDataObjectArray;
             nextDataNumber++;
         }
@@ -44,7 +43,7 @@ public class JsonReaderForDatas {
                                                          objectData.get("metals"), objectData.get("vegetables")};
     }
 
-    private static String [] getSummaryMas(Object [] ob) {
-        return new String[] {ob[0].toString(), ob[1].toString()};
+    private static Integer [] getSummaryMas(Object [] ob) {
+        return new Integer[] {Integer.parseInt(ob[0].toString()), Integer.parseInt(ob[1].toString())};
     }
 }

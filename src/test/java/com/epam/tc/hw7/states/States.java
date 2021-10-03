@@ -10,13 +10,6 @@ import static com.epam.tc.hw7.pages.HomePage.userName;
 public class States {
 
     @Step
-    public static void shouldBeLoggedOut() {
-        if (userName.isDisplayed())
-            logout();
-        if (loginForm.isDisplayed())
-            userIcon.click();
-    }
-    @Step
     public static void logout() {
         if (!logout.isDisplayed())
             userIcon.click();

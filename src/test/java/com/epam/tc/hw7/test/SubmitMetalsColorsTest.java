@@ -22,9 +22,8 @@ public class SubmitMetalsColorsTest extends TestBase {
 
     @Test (dataProviderClass = DataProviderForMetalsColorsTest.class,
           dataProvider = "data for metals color test")
-    public void testSubmitMetalsColors(String [] summary, List<String> elements, String color,
+    public void testSubmitMetalsColors(Integer [] summary, List<String> elements, String color,
                                        String metal, List<String> vegetables) {
-
         homePage.open();
         userIcon.click();
         loginForm.loginAs(DEFAULT_USER);
@@ -35,7 +34,7 @@ public class SubmitMetalsColorsTest extends TestBase {
         metalsColorsForm.submit();
 
         softAssertions.assertThat(resultLog.summaryValue.getText())
-                      .isEqualTo("Summary: " + (Integer.parseInt(summary[0]) + Integer.parseInt(summary[1])));
+                      .isEqualTo("Summary: " + (summary[0] + summary[1]));
         softAssertions.assertThat(resultLog.elementsValue.getText())
                       .isEqualTo("Elements: " + ReaderUtil.getString(elements));
         softAssertions.assertThat(resultLog.colorValue.getText())

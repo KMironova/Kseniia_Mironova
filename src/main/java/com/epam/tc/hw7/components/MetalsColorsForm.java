@@ -12,8 +12,10 @@ import com.epam.tc.hw7.entities.MetalsColors;
 
 public class MetalsColorsForm extends Form<MetalsColors> {
 
-    @UI("section#odds-selector input") RadioButtons oddsSelector;
-    @UI("section#even-selector input") RadioButtons evenSelector;
+    @UI("section#odds-selector input")
+    RadioButtons oddSelector;
+    @UI("section#even-selector input")
+    RadioButtons evenSelector;
 
     @JDropdown(root = "div#colors",
                value = "span.text['Colors']",
@@ -39,6 +41,7 @@ public class MetalsColorsForm extends Form<MetalsColors> {
     @UI("button#submit-button")
     Button submitButton;
 
+    @Override
     public void submit() {
         submitButton.click();
     }
@@ -46,8 +49,8 @@ public class MetalsColorsForm extends Form<MetalsColors> {
     @JDIAction("Fill '{name}' with {0}")
     @Override
     public void fill(MetalsColors entity) {
-        oddsSelector.select(entity.oddsSelector);
-        evenSelector.select(entity.evenSelector);
+        oddSelector.select(entity.oddSelector.toString());
+        evenSelector.select(entity.evenSelector.toString());
 
         color.select(entity.color);
         metal.select(entity.metal);
