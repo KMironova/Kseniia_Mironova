@@ -8,10 +8,12 @@ package com.epam.tc.hw7.listeners;
 import static com.epam.jdi.light.driver.ScreenshotMaker.takeScreen;
 import static com.epam.jdi.light.settings.WebSettings.TEST_NAME;
 import static com.epam.jdi.light.settings.WebSettings.logger;
-import static com.epam.jdi.tools.LinqUtils.last;
+//import static com.epam.jdi.tools.LinqUtils.last;
+import static com.jdiai.tools.LinqUtils.last;
 import static java.lang.System.currentTimeMillis;
 
-import com.epam.jdi.tools.Safe;
+//import com.epam.jdi.tools.Safe;
+import com.jdiai.tools.Safe;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.testng.IInvokedMethod;

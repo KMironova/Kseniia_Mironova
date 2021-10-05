@@ -14,19 +14,24 @@ import com.epam.tc.hw7.entities.MetalsColors;
 import com.epam.tc.hw7.listeners.TestNGListener;
 import com.epam.tc.hw7.utils.ReaderUtil;
 import java.util.List;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestNGListener.class)
 public class SubmitMetalsColorsTest extends TestBase {
 
+    @BeforeClass
+    public void beforeClass() {
+        homePage.open();
+        userIcon.click();
+        loginForm.loginAs(DEFAULT_USER);
+    }
+
     @Test (dataProviderClass = DataProviderForMetalsColorsTest.class,
           dataProvider = "data for metals color test")
     public void testSubmitMetalsColors(Integer [] summary, List<String> elements, String color,
                                        String metal, List<String> vegetables) {
-        homePage.open();
-        userIcon.click();
-        loginForm.loginAs(DEFAULT_USER);
         headerMenu.select(MetalsColors);
         MetalsColors metalsColors = new MetalsColors(summary[0], summary[1], color, metal, elements, vegetables);
 
@@ -43,15 +48,5 @@ public class SubmitMetalsColorsTest extends TestBase {
                       .isEqualTo("Metal: " + metal);
         softAssertions.assertThat(resultLog.vegetablesValue.getText())
                       .isEqualTo("Vegetables: " + ReaderUtil.getString(vegetables));
-    }
-
-    @Test
-    public void test() {
-        int sum = 2;
-
-        homePage.open();
-        userIcon.click();
-        loginForm.loginAs(DEFAULT_USER);
-        headerMenu.select(MetalsColors);
     }
 }

@@ -24,7 +24,7 @@ public class TestBase {
 
     @AfterMethod
     void afterMethod() {
-        logout();
+        //  logout();
     }
 
     @AfterSuite

@@ -1,6 +1,6 @@
 package com.epam.tc.hw7.entities;
 
-import com.epam.jdi.tools.DataClass;
+import com.jdiai.tools.DataClass;
 import java.util.List;
 
 public class MetalsColors extends DataClass<MetalsColors> {
