@@ -8,17 +8,6 @@ import lombok.experimental.UtilityClass;
 public class ReaderUtil {
 
     public static String getString(List<String> objectList) {
-        StringBuilder result = new StringBuilder();
-        ListIterator<String> iterator = objectList.listIterator();
-
-        for (String str : objectList) {
-            result.append(str);
-            iterator.next();
-
-            if (iterator.hasNext()) {
-                result.append(",");
-            }
-        }
-        return result.toString();
+        return String.join(",", objectList);
     }
 }

@@ -1,17 +1,15 @@
 package com.epam.tc.hw7.test;
 
 import static com.epam.tc.hw7.SiteJdi.homePage;
-import static com.epam.tc.hw7.entities.Defaults.DEFAULT_USER;
 import static com.epam.tc.hw7.entities.HeaderMenuData.MetalsColors;
 import static com.epam.tc.hw7.pages.HomePage.headerMenu;
-import static com.epam.tc.hw7.pages.HomePage.loginForm;
-import static com.epam.tc.hw7.pages.HomePage.userIcon;
 import static com.epam.tc.hw7.pages.MetalsColorsPage.metalsColorsForm;
 import static com.epam.tc.hw7.pages.MetalsColorsPage.resultLog;
 
 import com.epam.tc.hw7.dataprovider.DataProviderForMetalsColorsTest;
 import com.epam.tc.hw7.entities.MetalsColors;
 import com.epam.tc.hw7.listeners.TestNGListener;
+import com.epam.tc.hw7.utils.LogInUtil;
 import com.epam.tc.hw7.utils.ReaderUtil;
 import java.util.List;
 import org.testng.annotations.BeforeClass;
@@ -24,14 +22,14 @@ public class SubmitMetalsColorsTest extends TestBase {
     @BeforeClass
     public void beforeClass() {
         homePage.open();
-        userIcon.click();
-        loginForm.loginAs(DEFAULT_USER);
+        LogInUtil.login();
     }
 
     @Test (dataProviderClass = DataProviderForMetalsColorsTest.class,
           dataProvider = "data for metals color test")
     public void testSubmitMetalsColors(Integer [] summary, List<String> elements, String color,
                                        String metal, List<String> vegetables) {
+        LogInUtil.shouldBeLoggedIn();
         headerMenu.select(MetalsColors);
         MetalsColors metalsColors = new MetalsColors(summary[0], summary[1], color, metal, elements, vegetables);
 
